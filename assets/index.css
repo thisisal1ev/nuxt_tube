@@ -1,1 +1,14 @@
 @import 'tailwindcss';
+@import '@nuxt/ui';
+
+@theme {
+	--font-nunito: Nunito, serif;
+
+	--container-base: 1280px;
+}
+
+@layer base {
+	body {
+		@apply text-base font-normal font-nunito leading-normal;
+	}
+}

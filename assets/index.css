@@ -4,7 +4,7 @@
 @theme {
 	--font-nunito: Nunito, serif;
 
-	--container-base: 1280px;
+	--container-base: 1120px;
 }
 
 @layer base {

@@ -4,11 +4,20 @@
 @theme {
 	--font-nunito: Nunito, serif;
 
-	--container-base: 1120px;
+	--container-base: 1200px;
+	--container-max: 1510px;
 }
 
 @layer base {
 	body {
 		@apply text-base font-normal font-nunito leading-normal;
+	}
+
+	.router-link-active > svg {
+		@apply text-info-500;
+	}
+
+	.router-link-active {
+		@apply underline underline-offset-4;
 	}
 }

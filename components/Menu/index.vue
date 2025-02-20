@@ -1,23 +1,57 @@
 <script lang="ts" setup>
-import type { IMenuItem } from '../Sidebar.vue'
-
-interface Props {
-	items: IMenuItem[]
-	isCollapsed: boolean
-}
-
-defineProps<Props>()
+const sidebarStore = useSidebarStore()
 </script>
 
 <template>
-	<div class="pt-8">
-		<MenuItem
-			v-for="item in items"
-			:key="item.icon"
-			:icon="item.icon"
-			:link="item.link"
-			:name="item.name"
-			:isCollapsed
+	<div class="flex flex-col space-y-5">
+		<div>
+			<MenuItem
+				v-for="item in sidebarStore.UP_MENU_LIST"
+				:key="item.icon"
+				:icon="item.icon"
+				:link="item.link"
+				:name="item.name"
+				:isCollapsed="sidebarStore.isCollapsed"
+			/>
+		</div>
+
+		<hr
+			class="w-40 mx-auto transition-all duration-300 text-white/10"
+			:class="!sidebarStore.isCollapsed ? '' : '!w-5'"
 		/>
+
+		<div>
+			<MenuItem
+				v-for="item in sidebarStore.MID_MENU_LIST"
+				:key="item.icon"
+				:icon="item.icon"
+				:link="item.link"
+				:name="item.name"
+				:isCollapsed="sidebarStore.isCollapsed"
+			/>
+		</div>
+
+		<hr
+			class="w-40 mx-auto transition-all duration-300 text-white/10"
+			:class="!sidebarStore.isCollapsed ? '' : '!w-5'"
+		/>
+
+		<div>
+			<p
+				v-if="!sidebarStore.isCollapsed"
+				class="uppercase text-[8px] text-white/40"
+			>
+				More from NuxtTube
+			</p>
+
+			<MenuItem
+				v-for="item in sidebarStore.LOW_MENU_LIST"
+				:key="item.icon"
+				:icon="item.icon"
+				:link="item.link"
+				:name="item.name"
+				:isCollapsed="sidebarStore.isCollapsed"
+			/>
+		</div>
 	</div>
 </template>

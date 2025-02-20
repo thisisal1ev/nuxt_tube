@@ -1,62 +1,31 @@
 <script lang="ts" setup>
-export interface IMenuItem {
-	icon: string
-	name: string
-	link: string
-}
-
-const MENU: IMenuItem[] = [
-	{
-		icon: 'home',
-		name: 'Home',
-		link: '/',
-	},
-	{
-		icon: 'users',
-		name: 'Friends',
-		link: '/friends',
-	},
-	{
-		icon: 'circle-check',
-		name: 'Todo list',
-		link: '/todo',
-	},
-	{
-		icon: 'award',
-		name: 'Achievements',
-		link: '/achievements',
-	},
-	{
-		icon: 'settings',
-		name: 'Settings',
-		link: '/settings',
-	},
-]
-
-const isCollapsed = ref<boolean>(false)
-
-const toggleSidebar = () => {
-	isCollapsed.value = !isCollapsed.value
-}
+const sidebarStore = useSidebarStore()
 </script>
 
 <template>
 	<aside
-		class="fixed left-0 top-0 border-r border-white/50 h-screen bg-white/5 py-2 transition-all duration-300"
-		:class="isCollapsed ? 'w-56' : 'w-12'"
+		class="fixed left-0 top-0 border-r border-white/50 h-screen bg-white/5 pt-5 py-2 transition-all duration-300 space-y-5"
+		:class="sidebarStore.isCollapsed ? 'w-12 p-2' : 'w-56 p-8'"
 	>
-		<button
-			class="absolute top-1 right-1 flex w-10 h-10 items-center justify-center cursor-pointer opacity-50 transition-opacity duration-300 ease-in-out hover:opacity-100"
-			@click="toggleSidebar()"
-		>
-			<Icon
-				:name="
-					isCollapsed ? 'lucide:panel-left-open' : 'lucide:panel-left-close'
-				"
-				size="18"
-			/>
-		</button>
+		<div class="flex items-center space-x-5">
+			<button
+				class="cursor-pointer transition-opacity duration-300 ease-in-out"
+				:class="sidebarStore.isCollapsed ? 'mx-auto' : ''"
+				@click="sidebarStore.toggleSidebar()"
+			>
+				<Icon name="lucide:menu" size="24" />
+			</button>
 
-		<Menu :items="MENU" :isCollapsed />
+			<h1
+				v-if="!sidebarStore.isCollapsed"
+				class="flex items-center space-x-1 transition-all duration-300"
+			>
+				<Icon name="lucide:square-play" size="28" class="text-info-400" />
+
+				<span class="font-extrabold">NuxtTube</span>
+			</h1>
+		</div>
+
+		<Menu />
 	</aside>
 </template>

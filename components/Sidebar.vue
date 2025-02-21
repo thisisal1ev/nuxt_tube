@@ -3,11 +3,14 @@ const sidebarStore = useSidebarStore()
 </script>
 
 <template>
-	<aside
-		class="fixed left-0 top-0 border-r border-white/50 h-screen bg-white/5 pt-5 py-2 transition-all duration-300 space-y-5"
-		:class="sidebarStore.isCollapsed ? 'w-12 p-2' : 'w-56 p-8'"
+	<Motion
+		as="aside"
+		class="fixed left-0 top-0 border-r border-white/50 h-screen bg-white/5 pt-5 py-2 space-y-5"
+		:class="sidebarStore.isCollapsed ? 'p-2' : 'p-8'"
+		:initial="{ width: '224px' }"
+		:animate="sidebarStore.isCollapsed ? { width: '48px' } : { width: '224px' }"
 	>
-		<div class="flex items-center space-x-5">
+		<div class="flex items-center space-x-2">
 			<button
 				class="cursor-pointer transition-opacity duration-300 ease-in-out"
 				:class="sidebarStore.isCollapsed ? 'mx-auto' : ''"
@@ -27,5 +30,5 @@ const sidebarStore = useSidebarStore()
 		</div>
 
 		<Menu />
-	</aside>
+	</Motion>
 </template>

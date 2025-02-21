@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	vite: { plugins: [tailwindcss()] },
 	css: ['./assets/index.css'],
-	modules: ['@nuxt/ui', '@pinia/nuxt'],
+	modules: ['@nuxt/ui', '@pinia/nuxt', 'motion-v/nuxt'],
 
 	fonts: {
 		families: [{ name: 'Nunito', provider: 'google', global: true }],
@@ -19,7 +19,7 @@ export default defineNuxtConfig({
 		size: '16px',
 	},
 
-	pinia:{
+	pinia: {
 		storesDirs: ['./stores'],
 	},
 

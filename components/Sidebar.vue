@@ -5,13 +5,18 @@ const sidebarStore = useSidebarStore()
 <template>
 	<Motion
 		as="aside"
-		class="fixed left-0 top-0 border-r border-white/50 h-screen bg-white/5 pt-5 py-2 space-y-5"
-		:class="sidebarStore.isCollapsed ? 'p-2' : 'p-8'"
-		:initial="{ width: '224px' }"
-		:animate="sidebarStore.isCollapsed ? { width: '48px' } : { width: '224px' }"
+		class="fixed left-0 top-0 border-r border-white/10 min-h-screen pt-5 py-2 space-y-5"
+		:initial="{ width: '224px', padding: '32px' }"
+		:animate="
+			sidebarStore.isCollapsed
+				? { width: '48px', padding: '8px', paddingTop: '20px' }
+				: { width: '224px', padding: '32px' }
+		"
+		:transition="{ duration: 0.3 }"
 	>
 		<div class="flex items-center space-x-2">
 			<button
+				title="Menu"
 				class="cursor-pointer transition-opacity duration-300 ease-in-out"
 				:class="sidebarStore.isCollapsed ? 'mx-auto' : ''"
 				@click="sidebarStore.toggleSidebar()"
@@ -25,7 +30,7 @@ const sidebarStore = useSidebarStore()
 			>
 				<Icon name="lucide:square-play" size="28" class="text-info-400" />
 
-				<span class="font-extrabold">NuxtTube</span>
+				<span class="font-extrabold text-xl">NuxtTube</span>
 			</h1>
 		</div>
 

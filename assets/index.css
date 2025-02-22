@@ -5,7 +5,6 @@
 	--font-nunito: Nunito, serif;
 
 	--container-base: 1200px;
-	--container-max: 1510px;
 }
 
 @layer base {

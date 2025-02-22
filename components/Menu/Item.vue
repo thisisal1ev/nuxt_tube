@@ -22,7 +22,10 @@ defineProps<Props>()
 			size="20"
 		/>
 
-		<span v-if="!isCollapsed" class="transition-all duration-300">
+		<span
+			v-if="!isCollapsed"
+			class="transition-all duration-300 whitespace-nowrap"
+		>
 			{{ name }}
 		</span>
 	</NuxtLink>

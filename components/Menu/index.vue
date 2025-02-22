@@ -16,8 +16,8 @@ const sidebarStore = useSidebarStore()
 		</div>
 
 		<hr
-			class="w-40 mx-auto transition-all duration-300 text-white/10"
-			:class="!sidebarStore.isCollapsed ? '' : '!w-5'"
+			class="mx-auto transition-all duration-300 text-white/10"
+			:class="!sidebarStore.isCollapsed ? 'w-40' : 'w-5'"
 		/>
 
 		<div>
@@ -32,8 +32,8 @@ const sidebarStore = useSidebarStore()
 		</div>
 
 		<hr
-			class="w-40 mx-auto transition-all duration-300 text-white/10"
-			:class="!sidebarStore.isCollapsed ? '' : '!w-5'"
+			class="mx-auto transition-all duration-300 text-white/10"
+			:class="!sidebarStore.isCollapsed ? 'w-40' : 'w-5'"
 		/>
 
 		<div>

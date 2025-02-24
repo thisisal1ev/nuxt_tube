@@ -5,6 +5,7 @@ interface Props {
 	views: number
 	channel: string
 	poster: string
+	isTrend?: boolean
 }
 
 defineProps<Props>()
@@ -19,7 +20,7 @@ defineProps<Props>()
 		<div class="space-y-1">
 			<div class="flex items-center justify-between">
 				<div class="flex items-center space-x-1">
-					<Icon name="lucide:flame" class="text-error-500" />
+					<Icon v-if="isTrend" name="lucide:flame" class="text-error-500" />
 
 					<span class="text-white/50">{{ views }}k</span>
 				</div>

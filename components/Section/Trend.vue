@@ -51,6 +51,7 @@ const items = ref([
 				:views="item.views"
 				:channel="item.channel"
 				:poster="item.poster"
+				:isTrend="true"
 			/>
 		</div>
 	</section>

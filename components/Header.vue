@@ -1,21 +1,6 @@
-<script lang="ts" setup>
-const sidebarStore = useSidebarStore()
-</script>
-
 <template>
-	<Motion
-		as="header"
-		class="border-b border-white/10 fixed top-0 left-56 min-w-full p-5"
-		:animate="sidebarStore.isCollapsed ? { left: '48px' } : { left: '224px' }"
-		:transition="{ duration: 0.3 }"
-	>
-		<Motion
-			class="flex items-center justify-center space-x-10"
-			:animate="
-				sidebarStore.isCollapsed ? { width: '1440px' } : { width: '1240px' }
-			"
-			:transition="{ duration: 0.3, bounce: 0.1, mass: 0.3, type: 'spring' }"
-		>
+	<header class="header">
+		<div class="header_container">
 			<input
 				type="search"
 				class="outline-none px-5 w-xl grow"
@@ -24,36 +9,43 @@ const sidebarStore = useSidebarStore()
 
 			<div class="space-x-5 flex items-center justify-between">
 				<button class="group">
-					<Icon
-						name="lucide:square-plus"
-						class="group-hover:text-white/50 transition-colors duration-300"
-					/>
+					<Icon name="lucide:square-plus" class="icon" />
 				</button>
 
 				<button class="group">
-					<Icon
-						name="lucide:layout-grid"
-						class="group-hover:text-white/50 transition-colors duration-300"
-					/>
+					<Icon name="lucide:layout-grid" class="icon" />
 				</button>
 
 				<button class="group">
-					<Icon
-						name="lucide:bell"
-						class="group-hover:text-white/50 transition-colors duration-300"
-					/>
+					<Icon name="lucide:bell" class="icon" />
 				</button>
 
 				<UButton
 					variant="solid"
 					color="info"
-					class="text-white rounded-sm px-2"
+					class="text-white rounded-sm px-4 py-2"
 				>
 					<Icon name="lucide:log-in" />
 
 					<span>Auth</span>
 				</UButton>
 			</div>
-		</Motion>
-	</Motion>
+		</div>
+	</header>
 </template>
+
+<style scoped>
+@reference "tailwindcss";
+
+.header {
+	@apply border-b border-white/10 p-5;
+}
+
+.header_container {
+	@apply flex items-center justify-center space-x-10;
+}
+
+.icon {
+	@apply group-hover:text-white/50 transition-colors duration-300;
+}
+</style>

@@ -16,7 +16,7 @@ const sidebarStore = useSidebarStore()
 		</div>
 
 		<hr
-			class="mx-auto transition-all duration-300 text-white/10"
+			class="horizontal_line"
 			:class="!sidebarStore.isCollapsed ? 'w-40' : 'w-5'"
 		/>
 
@@ -32,7 +32,7 @@ const sidebarStore = useSidebarStore()
 		</div>
 
 		<hr
-			class="mx-auto transition-all duration-300 text-white/10"
+			class="horizontal_line"
 			:class="!sidebarStore.isCollapsed ? 'w-40' : 'w-5'"
 		/>
 
@@ -55,3 +55,11 @@ const sidebarStore = useSidebarStore()
 		</div>
 	</div>
 </template>
+
+<style scoped>
+@reference "tailwindcss";
+
+.horizontal_line {
+	@apply mx-auto transition-all duration-300 text-white/10;
+}
+</style>

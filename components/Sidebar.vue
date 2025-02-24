@@ -5,7 +5,7 @@ const sidebarStore = useSidebarStore()
 <template>
 	<Motion
 		as="aside"
-		class="fixed left-0 top-0 border-r border-white/10 min-h-screen pt-5 py-2 space-y-5"
+		class="sidebar"
 		:initial="{ width: '224px', padding: '32px' }"
 		:animate="
 			sidebarStore.isCollapsed
@@ -37,3 +37,11 @@ const sidebarStore = useSidebarStore()
 		<Menu />
 	</Motion>
 </template>
+
+<style scoped>
+@reference "tailwindcss";
+
+.sidebar {
+	@apply border-r border-white/10 min-h-screen pt-5 py-2 space-y-5;
+}
+</style>

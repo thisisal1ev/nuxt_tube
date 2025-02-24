@@ -1,5 +1,5 @@
-@import 'tailwindcss';
 @import '@nuxt/ui';
+@import 'tailwindcss';
 
 @theme {
 	--font-nunito: Nunito, serif;
@@ -18,5 +18,26 @@
 
 	.router-link-active {
 		@apply underline underline-offset-4;
+	}
+
+	.layout {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas:
+			'sidebar header'
+			'sidebar content';
+	}
+
+	.header {
+		grid-area: header;
+	}
+
+	.sidebar {
+		grid-area: sidebar;
+	}
+
+	.content {
+		grid-area: content;
 	}
 }

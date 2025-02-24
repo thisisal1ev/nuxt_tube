@@ -10,14 +10,14 @@ defineProps<Props>()
 
 <template>
 	<NuxtLink
+		class="group link"
 		:to="link"
-		class="flex items-center gap-3 py-3.5 transition-all duration-300 ease-in-out h-12 group"
 		:class="isCollapsed ? '' : 'px-0.5'"
 		:title="name"
 	>
 		<Icon
 			:name="`lucide:${icon}`"
-			class="block group-hover:!text-info-500 transition-colors duration-300 ease-in-out"
+			class="group-hover:!text-info-500 transition-colors duration-300 ease-in-out"
 			:class="!isCollapsed ? '!text-white' : 'mx-auto'"
 			size="20"
 		/>
@@ -30,3 +30,11 @@ defineProps<Props>()
 		</span>
 	</NuxtLink>
 </template>
+
+<style scoped>
+@reference "tailwindcss";
+
+.link {
+	@apply flex items-center gap-3 py-3.5 transition-all duration-300 ease-in-out h-12;
+}
+</style>

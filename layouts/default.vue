@@ -1,9 +1,19 @@
 <template>
-	<Sidebar />
+	<div class="layout">
+		<Sidebar />
 
-	<Header />
+		<Header />
 
-	<UContainer class="flex flex-col min-h-screen transition-all duration-300">
-		<slot />
-	</UContainer>
+		<UContainer class="content">
+			<slot />
+		</UContainer>
+	</div>
 </template>
+
+<style scoped>
+@reference "tailwindcss";
+
+.content {
+	@apply flex flex-col min-h-screen min-w-full;
+}
+</style>

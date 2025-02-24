@@ -17,15 +17,12 @@ defineProps<Props>()
 	>
 		<Icon
 			:name="`lucide:${icon}`"
-			class="group-hover:!text-info-500 transition-colors duration-300 ease-in-out"
 			:class="!isCollapsed ? '!text-white' : 'mx-auto'"
+			class="transition ease-in-out group-hover:!text-info-500 group-hover:rotate-12"
 			size="20"
 		/>
 
-		<span
-			v-if="!isCollapsed"
-			class="transition-all duration-300 whitespace-nowrap"
-		>
+		<span v-if="!isCollapsed" class="whitespace-nowrap">
 			{{ name }}
 		</span>
 	</NuxtLink>
@@ -35,6 +32,10 @@ defineProps<Props>()
 @reference "tailwindcss";
 
 .link {
-	@apply flex items-center gap-3 py-3.5 transition-all duration-300 ease-in-out h-12;
+	@apply flex items-center gap-3 py-3.5 h-12;
+}
+
+.transition {
+	@apply transition-all duration-300;
 }
 </style>

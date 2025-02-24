@@ -14,7 +14,7 @@ const sidebarStore = useSidebarStore()
 		"
 		:transition="{ duration: 0.3 }"
 	>
-		<div class="flex items-center space-x-2">
+		<div class="flex items-center space-x-4">
 			<button
 				title="Menu"
 				class="cursor-pointer transition-opacity duration-300 ease-in-out"
@@ -24,10 +24,7 @@ const sidebarStore = useSidebarStore()
 				<Icon name="lucide:menu" size="24" />
 			</button>
 
-			<h1
-				v-if="!sidebarStore.isCollapsed"
-				class="flex items-center space-x-1 transition-all duration-300"
-			>
+			<h1 v-if="!sidebarStore.isCollapsed" class="flex items-center space-x-1">
 				<Icon name="lucide:square-play" size="28" class="text-info-400" />
 
 				<span class="font-extrabold text-xl">NuxtTube</span>

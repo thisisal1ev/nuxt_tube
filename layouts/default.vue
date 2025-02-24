@@ -14,6 +14,6 @@
 @reference "tailwindcss";
 
 .content {
-	@apply flex flex-col min-h-screen min-w-full;
+	@apply flex flex-col min-h-screen min-w-full space-y-3;
 }
 </style>

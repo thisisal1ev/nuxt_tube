@@ -22,15 +22,15 @@ defineProps<Props>()
 				<div class="flex items-center space-x-1">
 					<Icon v-if="isTrend" name="lucide:flame" class="text-error-500" />
 
-					<span class="text-white/50">{{ views }}k</span>
+					<span class="text-white/50 text-xs">{{ views }}k</span>
 				</div>
 
-				<p class="text-white/50">2 days ago</p>
+				<p class="text-white/50 text-xs">2 days ago</p>
 			</div>
 
-			<h4>{{ title }}</h4>
+			<h4 class="font-medium text-sm">{{ title }}</h4>
 
-			<NuxtLink to="" class="flex items-center">
+			<NuxtLink to="" class="flex items-center text-sm">
 				<span class="mr-1.5 text-white/50">{{ channel }}</span>
 
 				<Icon name="lucide:badge-check" class="text-primary-600" />

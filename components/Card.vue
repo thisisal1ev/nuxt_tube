@@ -12,38 +12,50 @@ defineProps<Props>()
 </script>
 
 <template>
-	<UCard variant="soft" class="card" :key="id">
-		<NuxtLink to="">
-			<NuxtImg class="w-full rounded-xl mb-3" :src="poster" :alt="title" />
-		</NuxtLink>
+	<Motion
+		:hover="{
+			scale: 1.1,
+		}"
+		:press="{
+			scale: 1,
+		}"
+		:transition="{
+			duration: 0.3,
+		}"
+	>
+		<UCard variant="soft" class="card" :key="id">
+			<NuxtLink to="">
+				<NuxtImg class="w-full rounded-xl mb-3" :src="poster" :alt="title" />
+			</NuxtLink>
 
-		<div class="space-y-1">
-			<div class="flex items-center justify-between">
-				<div class="flex items-center space-x-1">
-					<Icon v-if="isTrend" name="lucide:flame" class="text-error-500" />
+			<div class="space-y-1">
+				<div class="flex items-center justify-between">
+					<div class="flex items-center space-x-1">
+						<Icon v-if="isTrend" name="lucide:flame" class="text-error-500" />
 
-					<span class="text-white/50 text-xs">{{ views }}k</span>
+						<span class="text-white/50 text-xs">{{ views }}k</span>
+					</div>
+
+					<p class="text-white/50 text-xs">2 days ago</p>
 				</div>
 
-				<p class="text-white/50 text-xs">2 days ago</p>
+				<h4 class="font-medium text-sm">{{ title }}</h4>
+
+				<NuxtLink to="" class="flex items-center text-sm">
+					<span class="mr-1.5 text-white/50">{{ channel }}</span>
+
+					<Icon name="lucide:badge-check" class="text-primary-600" />
+				</NuxtLink>
 			</div>
-
-			<h4 class="font-medium text-sm">{{ title }}</h4>
-
-			<NuxtLink to="" class="flex items-center text-sm">
-				<span class="mr-1.5 text-white/50">{{ channel }}</span>
-
-				<Icon name="lucide:badge-check" class="text-primary-600" />
-			</NuxtLink>
-		</div>
-	</UCard>
+		</UCard>
+	</Motion>
 </template>
 
 <style>
 @reference "tailwindcss";
 
 .card {
-	@apply rounded-none bg-transparent transition-transform duration-300 rounded-b-xl hover:scale-105;
+	@apply rounded-none bg-transparent transition-transform duration-300 rounded-b-xl;
 }
 
 .card > div {

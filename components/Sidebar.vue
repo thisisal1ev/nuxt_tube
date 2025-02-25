@@ -6,11 +6,15 @@ const sidebarStore = useSidebarStore()
 	<Motion
 		as="aside"
 		class="sidebar"
-		:initial="{ width: '224px', padding: '32px' }"
+		:initial="{ width: '224px', paddingLeft: '32px', paddingRight: '32px' }"
 		:animate="
 			sidebarStore.isCollapsed
-				? { width: '48px', padding: '8px', paddingTop: '20px' }
-				: { width: '224px', padding: '32px' }
+				? { width: '48px', paddingLeft: '8px', paddingRight: '8px' }
+				: {
+						width: '224px',
+						paddingLeft: '32px',
+						paddingRight: '32px',
+				  }
 		"
 		:transition="{ duration: 0.3 }"
 	>
@@ -39,6 +43,6 @@ const sidebarStore = useSidebarStore()
 @reference "tailwindcss";
 
 .sidebar {
-	@apply border-r border-white/10 min-h-screen pt-5 py-2 space-y-5;
+	@apply border-r border-white/10 min-h-screen !py-5 space-y-5;
 }
 </style>

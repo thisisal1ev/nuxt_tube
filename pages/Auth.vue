@@ -33,7 +33,9 @@ watchEffect(() => {
 				<span class="font-extrabold text-2xl">NuxtTube</span>
 			</h1>
 
-			<UTabs color="info" variant="link" v-model="active" :items />
+			<div class="flex items-center justify-center">
+				<UTabs color="info" variant="link" size="xl" v-model="active" :items />
+			</div>
 
 			<FormLogin v-if="form === 'login'" />
 			<FormRegister v-else />
@@ -45,6 +47,6 @@ watchEffect(() => {
 @reference 'tailwindcss';
 
 .form {
-	@apply p-5 border border-white/10 rounded-sm space-y-5 w-sm;
+	@apply p-5 border border-white/10 rounded-sm space-y-5 w-xs;
 }
 </style>

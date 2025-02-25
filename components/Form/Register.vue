@@ -13,7 +13,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 </script>
 
 <template>
-	<UForm :state @submit="onSubmit" class="space-y-4" id="login_form">
+	<UForm :state @submit="onSubmit" class="space-y-4">
 		<UFormField label="Email" name="email">
 			<UInput
 				v-model="state.email"
@@ -25,7 +25,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 			/>
 		</UFormField>
 
-		<UFormField label="Password" name="password" class="relative">
+		<UFormField label="Password" name="password">
 			<UInput
 				variant="outline"
 				color="info"

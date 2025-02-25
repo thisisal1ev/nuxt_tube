@@ -43,6 +43,6 @@ const sidebarStore = useSidebarStore()
 @reference "tailwindcss";
 
 .sidebar {
-	@apply border-r border-white/10 min-h-screen !py-5 space-y-5;
+	@apply border-r border-white/10 min-h-screen !py-5 space-y-5 outline-none;
 }
 </style>

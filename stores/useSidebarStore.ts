@@ -53,7 +53,7 @@ export const useSidebarStore = defineStore('sidebar', () => {
 		{
 			icon: 'log-out',
 			name: 'Logout',
-			link: 'logout',
+			link: '',
 		},
 	])
 	const STUDIO_MENU_LIST = ref<IMenuItem[]>([
@@ -70,7 +70,7 @@ export const useSidebarStore = defineStore('sidebar', () => {
 		{
 			icon: 'upload',
 			name: 'Upload a video',
-			link: 'upload',
+			link: '',
 		},
 	])
 	const isCollapsed = ref<boolean>(false)

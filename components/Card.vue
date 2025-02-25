@@ -25,7 +25,13 @@ defineProps<Props>()
 	>
 		<UCard variant="soft" class="card" :key="id">
 			<NuxtLink to="">
-				<NuxtImg class="w-full rounded-xl mb-3" :src="poster" :alt="title" />
+				<NuxtImg
+					width="300"
+					height="165"
+					class="w-full rounded-xl mb-3"
+					:src="poster"
+					:alt="title"
+				/>
 			</NuxtLink>
 
 			<div class="space-y-1">

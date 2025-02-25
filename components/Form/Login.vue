@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { FormSubmitEvent } from '@nuxt/ui'
 
+const show = ref(false)
 const state = reactive({
 	email: '',
 	password: '',
@@ -9,12 +10,10 @@ const state = reactive({
 async function onSubmit(event: FormSubmitEvent<any>) {
 	console.log(event.data)
 }
-
-const show = ref(false)
 </script>
 
 <template>
-	<UForm :state @submit="onSubmit" class="space-y-4" id="login_form">
+	<UForm :state @submit="onSubmit" class="space-y-4">
 		<UFormField label="Email" name="email">
 			<UInput
 				v-model="state.email"

@@ -16,7 +16,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 
 <template>
 	<UForm :state @submit="onSubmit">
-		<div class="flex items-start space-x-5 mb-5">
+		<div class="flex items-start space-x-6 mb-5">
 			<div class="space-y-4 w-xl">
 				<UFormField label="Email" name="email" size="xl">
 					<UInput

@@ -50,6 +50,28 @@ export const useSidebarStore = defineStore('sidebar', () => {
 			name: 'Send feedback',
 			link: '/feedback',
 		},
+		{
+			icon: 'log-out',
+			name: 'Logout',
+			link: 'logout',
+		},
+	])
+	const STUDIO_MENU_LIST = ref<IMenuItem[]>([
+		{
+			icon: 'layout-grid',
+			name: 'Studio',
+			link: 'studio',
+		},
+		{
+			icon: 'settings',
+			name: 'Settings',
+			link: 'settings',
+		},
+		{
+			icon: 'upload',
+			name: 'Upload a video',
+			link: 'upload',
+		},
 	])
 	const isCollapsed = ref<boolean>(false)
 
@@ -61,6 +83,7 @@ export const useSidebarStore = defineStore('sidebar', () => {
 		UP_MENU_LIST,
 		MID_MENU_LIST,
 		LOW_MENU_LIST,
+		STUDIO_MENU_LIST,
 		isCollapsed,
 		toggleSidebar,
 	}

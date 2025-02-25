@@ -1,9 +1,11 @@
 <template>
 	<header class="header">
 		<div class="header_container">
-			<input
+			<UInput
+				variant="ghost"
 				type="search"
-				class="outline-none px-5 w-xl grow"
+				size="lg"
+				class="outline-none grow"
 				placeholder="Type to search"
 			/>
 
@@ -23,6 +25,7 @@
 				<UButton
 					variant="solid"
 					color="info"
+					to="/auth"
 					class="text-white rounded-sm px-4 py-2"
 				>
 					<Icon name="lucide:log-in" />
@@ -38,7 +41,7 @@
 @reference "tailwindcss";
 
 .header {
-	@apply border-b border-white/10 p-5;
+	@apply border-b border-white/10 px-5 py-3;
 }
 
 .header_container {

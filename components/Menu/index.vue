@@ -41,6 +41,29 @@ const sidebarStore = useSidebarStore()
 				v-if="!sidebarStore.isCollapsed"
 				class="uppercase text-[8px] text-white/40"
 			>
+				Studio
+			</p>
+
+			<MenuItem
+				v-for="item in sidebarStore.STUDIO_MENU_LIST"
+				:key="item.icon"
+				:icon="item.icon"
+				:link="item.link"
+				:name="item.name"
+				:isCollapsed="sidebarStore.isCollapsed"
+			/>
+		</div>
+
+		<hr
+			class="horizontal_line"
+			:class="!sidebarStore.isCollapsed ? 'w-40' : 'w-5'"
+		/>
+
+		<div>
+			<p
+				v-if="!sidebarStore.isCollapsed"
+				class="uppercase text-[8px] text-white/40"
+			>
 				More from NuxtTube
 			</p>
 

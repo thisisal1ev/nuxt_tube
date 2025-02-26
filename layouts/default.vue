@@ -1,5 +1,5 @@
 <template>
-	<div class="layout">
+	<main class="layout">
 		<Sidebar />
 
 		<Header />
@@ -7,13 +7,13 @@
 		<UContainer class="content">
 			<slot />
 		</UContainer>
-	</div>
+	</main>
 </template>
 
 <style scoped>
 @reference "tailwindcss";
 
 .content {
-	@apply flex flex-col min-h-screen min-w-full space-y-3;
+	@apply flex flex-col min-h-screen min-w-full my-3.5;
 }
 </style>

@@ -68,7 +68,7 @@ const items = ref([
 </script>
 
 <template>
-	<section>
+	<section class='py-2 my-0.5'>
 		<h2 class="flex items-center space-x-2">
 			<Icon name="lucide:compass" size="24" class="text-info-500" />
 

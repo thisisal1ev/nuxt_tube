@@ -1,17 +1,13 @@
 <script lang="ts" setup>
 import type { FormSubmitEvent } from '@nuxt/ui'
 
-interface Props {
-	droppedFile: File
-}
-
-const props = defineProps<Props>()
-const fileSize = computed(() =>
-	(props.droppedFile.size / 1024 / 1024).toFixed(2)
+const dragStore = useDragStore()
+const poster = ref<File | null>(null)
+const title = computed(() =>
+	dragStore.droppedFile ? dragStore.droppedFile.name : ''
 )
-const poster = ref<null | File>(null)
 const state = reactive({
-	title: props.droppedFile.name || '',
+	title: title.value,
 	description: '',
 	tags: '',
 })
@@ -25,10 +21,6 @@ function onFileChange(event: Event) {
 
 async function onSubmit(event: FormSubmitEvent<any>) {
 	console.log(event.data)
-}
-
-function fileUrl(file: File) {
-	return URL.createObjectURL(file)
 }
 </script>
 
@@ -59,12 +51,12 @@ function fileUrl(file: File) {
 				</UFormField>
 
 				<NuxtImg
-					v-if="poster?.type.startsWith('image/')"
+					v-if="poster && !isVideo(poster.type)"
 					width="200"
 					height="80"
 					class="h-28"
 					:src="fileUrl(poster)"
-					:alt="poster.name"
+					:alt="poster?.name"
 				/>
 
 				<UFormField label="Poster" name="poster">
@@ -83,41 +75,52 @@ function fileUrl(file: File) {
 						color="info"
 						size="lg"
 						class="w-full"
-						placeholder="Enter description:"
+						placeholder="Enter tags:"
 					/>
 				</UFormField>
 			</div>
 
 			<div class="bg-slate-800/60 rounded-lg">
-				<NuxtImg
-					v-if="droppedFile.type.startsWith('image/')"
+				<video
+					v-if="dragStore.droppedFile && isVideo(dragStore.droppedFile?.type)"
 					width="220"
 					class="rounded-t-lg"
-					:src="fileUrl(droppedFile)"
-					:alt="droppedFile.name"
+					:src="fileUrl(dragStore.droppedFile)"
 				/>
 
 				<div class="p-1.5 space-y-1.5">
 					<div>
 						<h5 class="text-xs text-white/50">File name:</h5>
-						<p class="text-sm">{{ droppedFile.name }}</p>
+
+						<p v-if="dragStore.droppedFile" class="text-sm">
+							{{ dragStore.droppedFile.name }}
+						</p>
 					</div>
 
 					<div>
 						<h5 class="text-xs text-white/50">File size:</h5>
-						<p class="text-sm">{{ fileSize }} Mb</p>
+
+						<p v-if="dragStore.droppedFile" class="text-sm">
+							{{ fileSize(dragStore.droppedFile.size) }} Mb
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<UButton
-			class="px-5 py-1.5 mt-5 ml-auto"
-			type="submit"
-			color="info"
-			size="lg"
-		>
-			Publish
-		</UButton>
+		<div class="ml-auto space-x-5">
+			<UButton
+				@click="dragStore.clearDropped"
+				class="px-5 py-1.5"
+				color="error"
+				type="button"
+			>
+				Cancel
+			</UButton>
+
+			<UButton class="px-5 py-1.5 mt-5" type="submit" color="info">
+				Publish
+			</UButton>
+		</div>
 	</UForm>
 </template>

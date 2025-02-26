@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const dragStore = useDragStore()
+</script>
+
 <template>
 	<header class="header">
 		<div class="header_container">
@@ -10,20 +14,29 @@
 			/>
 
 			<div class="space-x-5 flex items-center justify-between">
-				<button class="group">
+				<UButton
+					variant="link"
+					color="secondary"
+					class="!p-0 group"
+					@click="dragStore.toggleModal"
+				>
 					<Icon name="lucide:square-plus" class="icon" />
-				</button>
-
-				<button class="group">
-					<Icon name="lucide:layout-grid" class="icon" />
-				</button>
-
-				<button class="group">
-					<Icon name="lucide:bell" class="icon" />
-				</button>
+				</UButton>
 
 				<UButton
-					variant="solid"
+					variant="link"
+					color="secondary"
+					class="!p-0 group"
+					to="/studio"
+				>
+					<Icon name="lucide:layout-grid" class="icon" />
+				</UButton>
+
+				<UButton variant="link" color="secondary" class="!p-0 group">
+					<Icon name="lucide:bell" class="icon" />
+				</UButton>
+
+				<UButton
 					color="info"
 					to="/auth"
 					class="text-white rounded-sm px-4 py-2"

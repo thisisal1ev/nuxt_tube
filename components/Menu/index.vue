@@ -11,7 +11,6 @@ const sidebarStore = useSidebarStore()
 				:icon="item.icon"
 				:link="item.link"
 				:name="item.name"
-				:isCollapsed="sidebarStore.isCollapsed"
 			/>
 		</div>
 

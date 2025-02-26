@@ -1,74 +1,42 @@
 <script lang="ts" setup>
-import type { IMenuItem } from '~/stores/useSidebarStore'
+import type { IMenuItem } from '~/stores/sidebar'
 
-interface Props extends IMenuItem {
-	isCollapsed: boolean
-}
+defineProps<IMenuItem>()
 
-defineProps<Props>()
-
-const isModalOpen = ref<boolean>(false)
-const dragActive = ref(false)
-const droppedFile = ref<File | null>(null)
+const dragStore = useDragStore()
+const sidebarStore = useSidebarStore()
 
 function logout() {
 	console.log('logout')
 }
 
-function toggleModal() {
-	isModalOpen.value = !isModalOpen.value
-	droppedFile.value = null
-}
-
-const toggle_active = () => {
-	if (droppedFile.value == null) {
-		dragActive.value = !dragActive.value
-	}
-}
-
-const drop = (event: any) => {
-	droppedFile.value = event.dataTransfer.files[0]
-}
-
 function onFileChange(event: Event) {
 	const input = event.target as HTMLInputElement
 	if (input.files?.length) {
-		droppedFile.value = input.files[0]
+		dragStore.droppedFile = input.files[0]
 	}
-}
-
-const selectedFile = (event: any) => {
-	droppedFile.value = event.target.files[0]
-	dragActive.value = true
-}
-
-const clearDropped = () => {
-	droppedFile.value = null
-	dragActive.value = false
 }
 </script>
 
 <template>
 	<UModal
-		v-if="isModalOpen"
+		v-if="dragStore.isModalOpen"
 		:portal="true"
 		:close="{
 			variant: 'outline',
 			color: 'info',
 		}"
-		v-model:open="isModalOpen"
+		v-model:open="dragStore.isModalOpen"
 		close-icon="lucide:x"
 		title="Upload a video"
 		class="!min-w-3xl"
 	>
 		<template #body>
 			<label
-				v-if="droppedFile === null"
-				@dragenter.prevent="toggle_active()"
-				@dragleave.prevent="toggle_active()"
+				v-if="dragStore.droppedFile === null"
 				@dragover.prevent
-				@drop.prevent="drop"
-				class="border border-white/10 border-dashed rounded flex flex-col items-center justify-center space-y-5 text-white/50 py-2 h-60 hover:bg-white/5 group"
+				@drop.prevent="dragStore.drop"
+				class="drag_zone group"
 				for="fileInput"
 			>
 				<input
@@ -76,13 +44,12 @@ const clearDropped = () => {
 					type="file"
 					@change="onFileChange"
 					class="hidden"
-					multiple
 				/>
 
 				<Icon
 					name="lucide:upload"
 					size="44"
-					class="transition-all duration-300 group-hover:-translate-y-1.5"
+					class="transition group-hover:-translate-y-1.5"
 				/>
 
 				<p class="text-sm">
@@ -90,27 +57,31 @@ const clearDropped = () => {
 				</p>
 			</label>
 
-			<FormVideo v-else :droppedFile />
+			<FormVideo v-else />
 		</template>
 	</UModal>
 
 	<NuxtLink
 		class="group link"
 		:to="link"
-		:class="isCollapsed ? '' : 'px-0.5'"
+		:class="sidebarStore.isCollapsed ? '' : 'px-0.5'"
 		:title="name"
 		@click="
-			icon === 'upload' ? toggleModal() : icon === 'log-out' ? logout() : ''
+			icon === 'upload'
+				? dragStore.toggleModal()
+				: icon === 'log-out'
+				? logout()
+				: ''
 		"
 	>
 		<Icon
 			:name="`lucide:${icon}`"
-			:class="!isCollapsed ? '!text-white' : 'mx-auto'"
+			:class="!sidebarStore.isCollapsed ? '!text-white' : 'mx-auto'"
 			class="transition ease-in-out group-hover:!text-info-500 group-hover:rotate-12"
 			size="20"
 		/>
 
-		<span v-if="!isCollapsed" class="whitespace-nowrap">
+		<span v-if="!sidebarStore.isCollapsed" class="whitespace-nowrap">
 			{{ name }}
 		</span>
 	</NuxtLink>
@@ -125,5 +96,9 @@ const clearDropped = () => {
 
 .transition {
 	@apply transition-all duration-300;
+}
+
+.drag_zone {
+	@apply border border-white/10 border-dashed rounded flex flex-col items-center justify-center space-y-5 text-white/50 py-2 h-60 hover:bg-white/5 transition-colors duration-300;
 }
 </style>

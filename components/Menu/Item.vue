@@ -68,19 +68,22 @@ const clearDropped = () => {
 				@dragleave.prevent="toggle_active()"
 				@dragover.prevent
 				@drop.prevent="drop"
-				class="border border-white/10 border-dashed rounded flex flex-col items-center justify-center space-y-5 text-white/50 py-2 h-60 hover:bg-white/5"
+				class="border border-white/10 border-dashed rounded flex flex-col items-center justify-center space-y-5 text-white/50 py-2 h-60 hover:bg-white/5 group"
 				for="fileInput"
 			>
 				<input
 					id="fileInput"
 					type="file"
-					ref="fileInput"
 					@change="onFileChange"
 					class="hidden"
 					multiple
 				/>
 
-				<Icon name="lucide:upload" size="44" />
+				<Icon
+					name="lucide:upload"
+					size="44"
+					class="transition-all duration-300 group-hover:-translate-y-1.5"
+				/>
 
 				<p class="text-sm">
 					Drag and drop your video file here, or click to select

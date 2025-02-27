@@ -72,6 +72,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 						type="file"
 						size="lg"
 						icon="lucide:cloud-upload"
+						accept=".jpg,.png,.jpeg,.webp,.avif"
 						@change="onFileChange"
 					/>
 				</UFormField>

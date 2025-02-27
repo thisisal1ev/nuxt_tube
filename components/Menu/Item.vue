@@ -44,6 +44,7 @@ function onFileChange(event: Event) {
 					type="file"
 					@change="onFileChange"
 					class="hidden"
+					accept=".mp4,.mkv,.mov,.avi,.webm"
 				/>
 
 				<Icon

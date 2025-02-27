@@ -7,7 +7,11 @@ export const useDragStore = defineStore('drag', () => {
 	}
 
 	function drop(event: any) {
-		droppedFile.value = event.dataTransfer.files[0]
+		const file: File = event.dataTransfer.files[0]
+
+		if (file.type.startsWith('video/')) {
+			droppedFile.value = file
+		}
 	}
 
 	function toggleModal() {

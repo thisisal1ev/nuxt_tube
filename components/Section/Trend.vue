@@ -37,11 +37,7 @@ const items = ref([
 
 <template>
 	<section class="py-2 my-0.5">
-		<h2 class="flex items-center space-x-2">
-			<Icon name="lucide:flame" size="24" class="text-info-500" />
-
-			<span class="text-lg font-bold">Trending</span>
-		</h2>
+		<SectionTitle text="Trending" icon="flame" />
 
 		<div class="wrapper">
 			<Card

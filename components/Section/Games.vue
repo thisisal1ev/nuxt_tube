@@ -38,12 +38,8 @@ const items = ref([
 </script>
 
 <template>
-	<section class='py-2 my-0.5'>
-		<h2 class="flex items-center space-x-2">
-			<Icon name="lucide:gamepad-2" size="24" class="text-info-500" />
-
-			<span class="text-lg font-bold">Video games</span>
-		</h2>
+	<section class="py-2 my-0.5">
+		<SectionTitle text="Video games" icon="gamepad-2" />
 
 		<div class="wrapper">
 			<Card

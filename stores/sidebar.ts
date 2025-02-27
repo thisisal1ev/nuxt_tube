@@ -27,7 +27,13 @@ export const useSidebarStore = defineStore('sidebar', () => {
 			link: '/subscriptions',
 		},
 	])
+
 	const MID_MENU_LIST = ref<IMenuItem[]>([
+		{
+			icon: 'tv-minimal-play',
+			name: 'My channel',
+			link: '/channel',
+		},
 		{
 			icon: 'list-video',
 			name: 'Playlist',
@@ -44,6 +50,7 @@ export const useSidebarStore = defineStore('sidebar', () => {
 			link: '/liked',
 		},
 	])
+
 	const LOW_MENU_LIST = ref<IMenuItem[]>([
 		{
 			icon: 'info',
@@ -56,6 +63,7 @@ export const useSidebarStore = defineStore('sidebar', () => {
 			link: '',
 		},
 	])
+
 	const STUDIO_MENU_LIST = ref<IMenuItem[]>([
 		{
 			icon: 'layout-grid',
@@ -73,11 +81,23 @@ export const useSidebarStore = defineStore('sidebar', () => {
 			link: '',
 		},
 	])
+
 	const isCollapsed = ref<boolean>(false)
+	const route = useRoute()
 
 	function toggleSidebar() {
 		isCollapsed.value = !isCollapsed.value
 	}
+
+	const isStudio = computed(() => {
+		return route.name === 'Studio' || route.name === 'Settings'
+	})
+
+	const sidebarTitle = computed(() => {
+		return route.name === 'Studio' || route.name === 'Settings'
+			? 'Studio'
+			: 'NuxtTube'
+	})
 
 	return {
 		UP_MENU_LIST,
@@ -85,6 +105,8 @@ export const useSidebarStore = defineStore('sidebar', () => {
 		LOW_MENU_LIST,
 		STUDIO_MENU_LIST,
 		isCollapsed,
+		isStudio,
+		sidebarTitle,
 		toggleSidebar,
 	}
 })

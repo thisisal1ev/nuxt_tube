@@ -31,7 +31,9 @@ const sidebarStore = useSidebarStore()
 			<h1 v-if="!sidebarStore.isCollapsed" class="flex items-center space-x-1">
 				<Icon name="lucide:square-play" size="28" class="text-info-400" />
 
-				<span class="font-extrabold text-xl">NuxtTube</span>
+				<span class="font-extrabold text-xl">
+					{{ sidebarStore.sidebarTitle }}
+				</span>
 			</h1>
 		</div>
 

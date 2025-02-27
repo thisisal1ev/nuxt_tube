@@ -82,6 +82,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 					<UInput
 						size="lg"
 						type="file"
+						color="info"
 						icon="lucide:cloud-upload"
 						accept=".jpg,.png,.jpeg,.webp,.avif"
 						@change="
@@ -105,6 +106,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 					<UInput
 						size="lg"
 						type="file"
+						color="info"
 						accept=".jpg,.png,.jpeg,.webp,.avif"
 						icon="lucide:cloud-upload"
 						@change="

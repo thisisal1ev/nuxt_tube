@@ -23,9 +23,9 @@ function onFileChange(event: Event) {
 async function onSubmit(event: FormSubmitEvent<any>) {
 	console.log(event.data)
 	toast.add({
-		title: 'Success',
+		title: 'Video successfully published!',
 		color: 'success',
-		icon: 'lucide:check',
+		icon: 'lucide:circle-check',
 		closeIcon: 'lucide:x',
 	})
 	dragStore.isModalOpen = false
@@ -70,6 +70,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 				<UFormField label="Poster" name="poster">
 					<UInput
 						type="file"
+						color="info"
 						size="lg"
 						icon="lucide:cloud-upload"
 						accept=".jpg,.png,.jpeg,.webp,.avif"

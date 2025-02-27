@@ -57,6 +57,6 @@ const items = ref([
 @reference "tailwindcss";
 
 .wrapper {
-	@apply grow h-auto grid grid-cols-4 gap-5 py-5;
+	@apply h-auto grid grid-cols-4 gap-5 py-5;
 }
 </style>

@@ -31,11 +31,12 @@ const sidebarStore = useSidebarStore()
 		</div>
 
 		<hr
+			v-if="sidebarStore.isStudio"
 			class="horizontal_line"
 			:class="!sidebarStore.isCollapsed ? 'w-40' : 'w-5'"
 		/>
 
-		<div>
+		<div v-if="sidebarStore.isStudio">
 			<p
 				v-if="!sidebarStore.isCollapsed"
 				class="uppercase text-[8px] text-white/40"

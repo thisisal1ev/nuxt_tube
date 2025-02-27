@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import type { FormSubmitEvent } from '@nuxt/ui'
 
+const avatar = ref<File | null>(null)
+const banner = ref<File | null>(null)
 const state = reactive({
 	email: '',
 	password: '',
@@ -77,12 +79,48 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 
 			<div class="space-y-4">
 				<UFormField label="Avatar" size="xl">
-					<UInput size="lg" type="file" icon="lucide:cloud-upload" />
+					<UInput
+						size="lg"
+						type="file"
+						icon="lucide:cloud-upload"
+						@change="
+							event => {
+								const input = event.target as HTMLInputElement
+								input.files ? (avatar = input.files[0]) : null
+							}
+						"
+					/>
 				</UFormField>
 
+				<NuxtImg
+					v-if="avatar && !isVideo(avatar.type)"
+					:src="fileUrl(avatar)"
+					width="128"
+					height="128"
+					class="w-32 h-32"
+				/>
+
 				<UFormField label="Banner" size="xl">
-					<UInput size="lg" type="file" icon="lucide:cloud-upload" />
+					<UInput
+						size="lg"
+						type="file"
+						icon="lucide:cloud-upload"
+						@change="
+							event => {
+								const input = event.target as HTMLInputElement
+								input.files ? (banner = input.files[0]) : null
+							}
+						"
+					/>
 				</UFormField>
+
+				<NuxtImg
+					v-if="banner && !isVideo(banner.type)"
+					:src="fileUrl(banner)"
+					width="384"
+					height="128"
+					class="w-96 h-40"
+				/>
 			</div>
 		</div>
 

@@ -4,9 +4,9 @@
 
 		<Header />
 
-		<UContainer class="content">
-			<slot />
-		</UContainer>
+				<UContainer class="content">
+					<slot />
+				</UContainer>
 	</main>
 </template>
 

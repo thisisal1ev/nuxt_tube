@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { FormSubmitEvent } from '@nuxt/ui'
 
+const toast = useToast()
 const dragStore = useDragStore()
 const poster = ref<File | null>(null)
 const title = computed(() =>
@@ -21,6 +22,13 @@ function onFileChange(event: Event) {
 
 async function onSubmit(event: FormSubmitEvent<any>) {
 	console.log(event.data)
+	toast.add({
+		title: 'Success',
+		color: 'success',
+		icon: 'lucide:check',
+		closeIcon: 'lucide:x',
+	})
+	dragStore.isModalOpen = false
 }
 </script>
 

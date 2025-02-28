@@ -9,6 +9,18 @@ interface Props {
 }
 
 defineProps<Props>()
+
+function open() {
+	console.log('open')
+}
+
+function edit() {
+	console.log('edit')
+}
+
+function remove() {
+	console.log('remove')
+}
 </script>
 
 <template>
@@ -33,16 +45,16 @@ defineProps<Props>()
 
 		<p class="text-sm text-white/70">{{ likes }} likes</p>
 
-		<div class="flex items-center justify-between space-x-2.5">
-			<UButton variant="link" color="info">
+		<div class="flex items-center justify-between space-x-1">
+			<UButton @click="open" variant="link" color="info" class="!p-1.5">
 				<Icon name="lucide:square-arrow-out-up-right" />
 			</UButton>
 
-			<UButton variant="link" color="warning">
+			<UButton @click="edit" variant="link" color="warning" class="!p-1.5">
 				<Icon name="lucide:square-pen" />
 			</UButton>
 
-			<UButton variant="link" color="error">
+			<UButton @click="remove" variant="link" color="error" class="!p-1.5">
 				<Icon name="lucide:trash-2" />
 			</UButton>
 		</div>

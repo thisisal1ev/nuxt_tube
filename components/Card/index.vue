@@ -8,7 +8,8 @@ interface Props {
 	isTrend?: boolean
 }
 
-defineProps<Props>()
+const { views } = defineProps<Props>()
+const formatViews = formatter.format(views)
 </script>
 
 <template>
@@ -39,7 +40,9 @@ defineProps<Props>()
 					<div class="flex items-center space-x-1">
 						<Icon v-if="isTrend" name="lucide:flame" class="text-error-500" />
 
-						<span class="text-white/50 text-xs">{{ views }}k</span>
+						<span class="text-white/50 text-xs tabular-nums">
+							{{ formatViews }}
+						</span>
 					</div>
 
 					<p class="text-white/50 text-xs">2 days ago</p>

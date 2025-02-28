@@ -1,3 +1,8 @@
+<script lang="ts" setup>
+const videos = formatter.format(562)
+const subscribers = formatter.format(23289)
+</script>
+
 <template>
 	<div class="space-y-5">
 		<NuxtImg
@@ -24,7 +29,7 @@
 				</div>
 
 				<div class="text-white/50 space-y-1.5">
-					<p>/slug - subscribers - videos</p>
+					<p>/slug - {{ subscribers }} subscribers - {{ videos }} videos</p>
 
 					<p>this is a description</p>
 				</div>
@@ -37,6 +42,75 @@
 			</div>
 		</div>
 
-		<SectionVideo />
+		<Section
+			icon="video"
+			text="Videos"
+			:items="[
+				{
+					id: 1,
+					title: 'Гуф ft. Баста - Гуф Умер (Official Video)',
+					views: 3.4,
+					channel: 'Channel 1',
+					poster:
+						'https://i.ytimg.com/vi/nuJjc8GEp60/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdlr_ib_pIeHNmRJ5LGm8MSajAwg',
+				},
+				{
+					id: 1,
+					title: 'Гуф ft. Баста - Гуф Умер (Official Video)',
+					views: 3.4,
+					channel: 'Channel 1',
+					poster:
+						'https://i.ytimg.com/vi/nuJjc8GEp60/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdlr_ib_pIeHNmRJ5LGm8MSajAwg',
+				},
+				{
+					id: 1,
+					title: 'Гуф ft. Баста - Гуф Умер (Official Video)',
+					views: 3.4,
+					channel: 'Channel 1',
+					poster:
+						'https://i.ytimg.com/vi/nuJjc8GEp60/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdlr_ib_pIeHNmRJ5LGm8MSajAwg',
+				},
+				{
+					id: 1,
+					title: 'Гуф ft. Баста - Гуф Умер (Official Video)',
+					views: 3.4,
+					channel: 'Channel 1',
+					poster:
+						'https://i.ytimg.com/vi/nuJjc8GEp60/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdlr_ib_pIeHNmRJ5LGm8MSajAwg',
+				},
+				{
+					id: 1,
+					title: 'Гуф ft. Баста - Гуф Умер (Official Video)',
+					views: 3.4,
+					channel: 'Channel 1',
+					poster:
+						'https://i.ytimg.com/vi/nuJjc8GEp60/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdlr_ib_pIeHNmRJ5LGm8MSajAwg',
+				},
+				{
+					id: 1,
+					title: 'Гуф ft. Баста - Гуф Умер (Official Video)',
+					views: 3.4,
+					channel: 'Channel 1',
+					poster:
+						'https://i.ytimg.com/vi/nuJjc8GEp60/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdlr_ib_pIeHNmRJ5LGm8MSajAwg',
+				},
+				{
+					id: 1,
+					title: 'Гуф ft. Баста - Гуф Умер (Official Video)',
+					views: 3.4,
+					channel: 'Channel 1',
+					poster:
+						'https://i.ytimg.com/vi/nuJjc8GEp60/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdlr_ib_pIeHNmRJ5LGm8MSajAwg',
+				},
+				{
+					id: 1,
+					title: 'Гуф ft. Баста - Гуф Умер (Official Video)',
+					views: 3.4,
+					channel: 'Channel 1',
+					poster:
+						'https://i.ytimg.com/vi/nuJjc8GEp60/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdlr_ib_pIeHNmRJ5LGm8MSajAwg',
+				},
+			]"
+		/>
 	</div>
 </template>

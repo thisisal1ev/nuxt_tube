@@ -8,7 +8,7 @@ interface Props {
 	likes: number
 }
 
-defineProps<Props>()
+const { comments, likes, views } = defineProps<Props>()
 
 function open() {
 	console.log('open')
@@ -21,6 +21,10 @@ function edit() {
 function remove() {
 	console.log('remove')
 }
+
+const formatViews = formatter.format(views)
+const formatLikes = formatter.format(likes)
+const formatComments = formatter.format(comments)
 </script>
 
 <template>
@@ -39,11 +43,13 @@ function remove() {
 			<p class="text-sm text-white/40">Published</p>
 		</div>
 
-		<p class="text-sm text-white/70">{{ views }} views</p>
+		<p class="text-sm text-white/70 tabular-nums">{{ formatViews }} views</p>
 
-		<p class="text-sm text-white/70">{{ comments }} comments</p>
+		<p class="text-sm text-white/70 tabular-nums">
+			{{ formatComments }} comments
+		</p>
 
-		<p class="text-sm text-white/70">{{ likes }} likes</p>
+		<p class="text-sm text-white/70 tabular-nums">{{ formatLikes }} likes</p>
 
 		<div class="flex items-center justify-between space-x-1">
 			<UButton @click="open" variant="link" color="info" class="!p-1.5">

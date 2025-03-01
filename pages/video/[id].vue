@@ -139,43 +139,12 @@ function subscribe() {
 			</div>
 
 			<div class="space-y-2.5 py-2.5">
-				<div class="flex items-start space-x-2.5">
-					<NuxtImg
-						src="https://yt3.googleusercontent.com/aiw73zdQg8OFJXVUK0m4rFJnxSUn5GArkXrLWD3sDh8LJ0eAVpdn9ECmXSKyHyyoX98pbKYVWQ=s160-c-k-c0x00ffffff-no-rj"
-						height="40"
-						width="40"
-						class="h-10 w-10 rounded-xl"
-					/>
-
-					<div class="space-y-1.5">
-						<h5 class="text-sm flex items-center space-x-1.5">
-							<span>thisisal1ev</span>
-
-							<Icon
-								name="lucide:badge-check"
-								size="18"
-								class="text-primary-500 mr-2.5"
-							/>
-
-							<span class="text-xs text-white/60">2 days ago</span>
-						</h5>
-
-						<p class="text-xs">
-							This is comment. It can be very long. But it should be short
-						</p>
-
-						<div class="flex items-center space-x-2.5">
-							<UButton class="!p-0" variant="link" color="info" label="Save" />
-
-							<UButton
-								class="!p-0"
-								variant="link"
-								color="error"
-								label="Delete"
-							/>
-						</div>
-					</div>
-				</div>
+				<Comment
+					avatar="https://yt3.googleusercontent.com/aiw73zdQg8OFJXVUK0m4rFJnxSUn5GArkXrLWD3sDh8LJ0eAVpdn9ECmXSKyHyyoX98pbKYVWQ=s160-c-k-c0x00ffffff-no-rj"
+					name="Name of the channel"
+					comment="This is comment"
+					createdAt='2 days ago'
+				/>
 			</div>
 		</div>
 

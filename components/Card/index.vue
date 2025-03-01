@@ -25,7 +25,7 @@ const formatViews = formatter.format(views)
 		}"
 	>
 		<UCard variant="soft" class="card" :key="id">
-			<NuxtLink to="">
+			<NuxtLink :to="`/video/${id}`">
 				<NuxtImg
 					width="300"
 					height="165"
@@ -40,18 +40,20 @@ const formatViews = formatter.format(views)
 					<div class="flex items-center space-x-1">
 						<Icon v-if="isTrend" name="lucide:flame" class="text-error-500" />
 
-						<span class="text-white/50 text-xs tabular-nums">
-							{{ formatViews }}
+						<span class="text-white/50 text-sm tabular-nums">
+							{{ formatViews }} views
 						</span>
 					</div>
 
-					<p class="text-white/50 text-xs">2 days ago</p>
+					<p class="text-white/50 text-sm">2 days ago</p>
 				</div>
 
-				<h4 class="font-medium text-sm">{{ title }}</h4>
+				<h4 class="font-medium text-base overflow-hidden line-clamp-2">
+					{{ title }}
+				</h4>
 
 				<NuxtLink to="" class="flex items-center text-sm">
-					<span class="mr-1.5 text-white/50">{{ channel }}</span>
+					<span class="mr-1.5 text-white/50 text-sm">{{ channel }}</span>
 
 					<Icon name="lucide:badge-check" class="text-primary-600" />
 				</NuxtLink>

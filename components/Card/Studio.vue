@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 interface Props {
+	id: number
 	poster: string
 	title: string
 	description: string
@@ -30,6 +31,7 @@ const formatComments = formatter.format(comments)
 <template>
 	<div
 		class="flex items-start justify-between space-x-1.5 py-5 not-last:border-b border-white/10"
+		:key="id"
 	>
 		<NuxtImg height="80" width="200" :src="poster" :alt="title" />
 
@@ -52,8 +54,14 @@ const formatComments = formatter.format(comments)
 		<p class="text-sm text-white/70 tabular-nums">{{ formatLikes }} likes</p>
 
 		<div class="flex items-center justify-between space-x-1">
-			<UButton @click="open" variant="link" color="info" class="!p-1.5">
-				<Icon name="lucide:square-arrow-out-up-right" />
+			<UButton
+				:to="`/video/${id}`"
+				target="_blank"
+				variant="link"
+				color="info"
+				class="!p-1.5"
+			>
+				<Icon name="lucide:external-link" />
 			</UButton>
 
 			<UButton @click="edit" variant="link" color="warning" class="!p-1.5">

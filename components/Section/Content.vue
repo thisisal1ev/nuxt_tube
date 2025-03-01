@@ -51,6 +51,7 @@ const items = ref([
 			<CardStudio
 				v-for="item in items"
 				:key="item.id"
+				:id="item.id"
 				:poster="item.poster"
 				:title="item.title"
 				:views="item.views"

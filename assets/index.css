@@ -40,4 +40,25 @@
 	.content {
 		grid-area: content;
 	}
+
+	.video_layout {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas:
+			'video recommendation'
+			'video_data recommendation';
+	}
+
+	.video {
+		grid-area: video;
+	}
+
+	.recommendation {
+		grid-area: recommendation;
+	}
+
+	.video_data {
+		grid-area: video_data;
+	}
 }

@@ -4,7 +4,7 @@ definePageMeta({
 })
 
 const form = ref<'login' | 'register'>('login')
-const active = ref('0')
+const active = ref<number | string>('0')
 
 const items = ref([
 	{

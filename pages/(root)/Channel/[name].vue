@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 const videos = formatter.format(562)
 const subscribers = formatter.format(23289)
-
 const state = ref<boolean>(false)
 
 function subscribe() {
@@ -29,7 +28,7 @@ function subscribe() {
 
 			<div class="flex flex-col space-y-0.5">
 				<div class="flex items-center">
-					<h3 class="text-3xl font-bold mr-2">thisisal1ev</h3>
+					<h3 class="text-3xl font-bold mr-2">{{ $route.params.name }}</h3>
 
 					<Icon name="lucide:badge-check" size="24" class="text-primary-500" />
 				</div>

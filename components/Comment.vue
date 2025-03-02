@@ -10,7 +10,7 @@ const props = defineProps<Props>()
 
 const oldComment = ref<string>(props.comment)
 const state = ref<boolean>(false)
-const newComment = ref<string>(oldComment.value)
+const newComment = ref<string | number>(oldComment.value)
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const newComment = ref<string>(oldComment.value)
 
 		<div class="space-y-1.5">
 			<h5 class="text-sm flex items-center space-x-1.5">
-				<span>{{ name }}</span>
+				<NuxtLink to="/channel/mychannel">{{ name }}</NuxtLink>
 
 				<Icon
 					name="lucide:badge-check"

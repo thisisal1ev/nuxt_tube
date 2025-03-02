@@ -30,7 +30,7 @@ function subscribe() {
 				class="py-2.5 flex items-start justify-between border-b border-white/10"
 			>
 				<div>
-					<h3 class="text-2xl font-semibold">Title</h3>
+					<h3 class="text-2xl font-semibold">Title {{ $route.params.id }}</h3>
 					<p class="text-sm text-white/50">2054 views</p>
 				</div>
 
@@ -72,7 +72,9 @@ function subscribe() {
 
 					<div>
 						<h4 class="text-sm flex items-center space-x-1.5">
-							<span class="mr-1.5">Name of the channel</span>
+							<NuxtLink :to="`/channel/mychannel`" class="mr-1.5"
+								>Name of the channel</NuxtLink
+							>
 
 							<Icon
 								name="lucide:badge-check"
@@ -143,7 +145,7 @@ function subscribe() {
 					avatar="https://yt3.googleusercontent.com/aiw73zdQg8OFJXVUK0m4rFJnxSUn5GArkXrLWD3sDh8LJ0eAVpdn9ECmXSKyHyyoX98pbKYVWQ=s160-c-k-c0x00ffffff-no-rj"
 					name="Name of the channel"
 					comment="This is comment"
-					createdAt='2 days ago'
+					createdAt="2 days ago"
 				/>
 			</div>
 		</div>

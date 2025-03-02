@@ -61,4 +61,8 @@
 	.video_data {
 		grid-area: video_data;
 	}
+
+	.text_style {
+		@apply text-xs text-white/70;
+	}
 }

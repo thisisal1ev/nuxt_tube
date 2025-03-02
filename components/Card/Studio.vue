@@ -37,7 +37,7 @@ const formatComments = formatter.format(comments)
 
 		<div class="w-sm space-y-1.5">
 			<h5 class="text-sm">{{ title }}</h5>
-			<p class="text-xs text-white/70">{{ description }}</p>
+			<p class="text_style">{{ description }}</p>
 		</div>
 
 		<div>
@@ -55,6 +55,7 @@ const formatComments = formatter.format(comments)
 
 		<div class="flex items-center justify-between space-x-1">
 			<UButton
+				@click="open"
 				:to="`/video/${id}`"
 				target="_blank"
 				variant="link"

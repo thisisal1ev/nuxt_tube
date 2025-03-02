@@ -52,7 +52,7 @@ const formatViews = formatter.format(views)
 					{{ title }}
 				</h4>
 
-				<NuxtLink to="" class="flex items-center text-sm">
+				<NuxtLink :to="`channel/${channel}`" class="flex items-center text-sm">
 					<span class="mr-1.5 text-white/50 text-sm">{{ channel }}</span>
 
 					<Icon name="lucide:badge-check" class="text-primary-600" />

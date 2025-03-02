@@ -4,20 +4,16 @@ const items = ref([
 		id: 1,
 		title:
 			'ФИНАЛ И КОНЦОВКА ОСНОВНОГО СЮЖЕТА! - Vice City Nextgen Edition Прохождение #14',
-		description: 'ljaskhdkjfahskjd',
-		comments: 22,
-		likes: 150,
-		views: 3156,
+		views: 3.4,
+		channel: 'SpecterChannel',
 		poster:
 			'https://i.ytimg.com/vi/wtima36SGDA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCCuLGYK7I4IXtQYzGhFfuTJrawLg',
 	},
 	{
 		id: 2,
 		title: 'В ПОГОНЕ ЗА РАССВЕТОМ! - ГОДНОТА ПОДЪЕХАЛА) - Warcraft 3',
-		views: 500,
-		description: 'akljsdfksdkfhakj',
-		comments: 150,
-		likes: 78,
+		views: 3.4,
+		channel: `ARROW'S PATH`,
 		poster:
 			'https://i.ytimg.com/vi/ctYQMuJNA8M/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDq58ZKGgiXQKVX_LjQigaDkSE4_Q',
 	},
@@ -25,20 +21,16 @@ const items = ref([
 		id: 3,
 		title:
 			'НОВЫЕ СПОСОБЫ ПРОХОЖДЕНИЯ И ВОССТАНОВЛЕННЫЙ КОНТЕНТ - Vice City Nextgen Edition Прохождение #2',
-		views: 15000,
-		description: 'laksjfdkahsdkjfh',
-		comments: 1000,
-		likes: 2500,
+		views: 3.4,
+		channel: 'SpecterChannel',
 		poster:
 			'https://i.ytimg.com/vi/voncH30Xqrs/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBjcygmW_LN9F2E8B0xXMSdsQcyxw',
 	},
 	{
 		id: 4,
 		title: 'ПРИЕХАЛИ К НЕОЖИДАННОМУ ПОВОРОТУ | PUBG',
-		views: 12368,
-		description: 'kjkhjghffhggahsjd',
-		comments: 500,
-		likes: 1000,
+		views: 3.4,
+		channel: 'Ally',
 		poster:
 			'https://i.ytimg.com/vi/0dny8H4gHlQ/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCCX3SPISYsNEpznevHb_mo3nDaPA',
 	},
@@ -46,17 +38,20 @@ const items = ref([
 </script>
 
 <template>
-	<section class="py-2 my-0.5 space-y-5">
-		<CardStudio
-			v-for="item in items"
-			:key="item.id"
-			:id="item.id"
-			:poster="item.poster"
-			:title="item.title"
-			:views="item.views"
-			:description="item.description"
-			:comments="item.comments"
-			:likes="item.likes"
+	<div class="flex items-start justify-between">
+		<h1 class="flex items-center space-x-3 mb-5">
+			<Icon name="lucide:history" size="32" class="text-info-500" />
+
+			<span class="font-bold text-3xl">History</span>
+		</h1>
+
+		<UButton
+			label="Clear history"
+			color="info"
+			size="lg"
+			class="px-5 rounded-sm"
 		/>
-	</section>
+	</div>
+
+	<SectionHistory :items />
 </template>

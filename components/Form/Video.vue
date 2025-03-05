@@ -35,7 +35,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 <template>
 	<UForm :state @submit="onSubmit" class="flex flex-col">
 		<div class="flex items-start justify-between space-x-5">
-			<div class="grow space-y-4">
+			<div class="grow h-auto w-full space-y-4">
 				<UFormField label="Title" name="title">
 					<UInput
 						v-model="state.title"
@@ -90,10 +90,12 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 				</UFormField>
 			</div>
 
-			<div class="bg-slate-800/60 rounded-lg">
+			<div
+				v-if="dragStore.droppedFile && isVideo(dragStore.droppedFile?.type)"
+				class="bg-slate-800/60 rounded-lg"
+			>
 				<video
-					v-if="dragStore.droppedFile && isVideo(dragStore.droppedFile?.type)"
-					width="220"
+					width="400"
 					class="rounded-t-lg"
 					:src="fileUrl(dragStore.droppedFile)"
 				/>

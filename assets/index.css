@@ -1,7 +1,7 @@
+@import 'tailwindcss' theme(static);
 @import '@nuxt/ui';
-@import 'tailwindcss';
 
-@theme {
+@theme static {
 	--font-nunito: Nunito, serif;
 
 	--container-base: 1200px;

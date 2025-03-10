@@ -18,10 +18,10 @@ function subscribe() {
 </script>
 
 <template>
-	<div class="video_layout gap-x-14 space-x-14 py-5">
+	<div class="video_layout gap-x-14 space-x-14 py-2.5">
 		<video
-			src="https://www.youtube.com/watch?v=hp7RGbb44VY&t=1154s"
-			class="rounded-lg w-full video"
+			src="https://cdn.pixabay.com/video/2025/01/19/253423_large.mp4"
+			class="rounded-lg w-full aspect-video video"
 			controls
 		/>
 

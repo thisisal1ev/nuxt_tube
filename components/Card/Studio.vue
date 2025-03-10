@@ -65,7 +65,13 @@ const formatComments = formatter.format(comments)
 				<Icon name="lucide:external-link" />
 			</UButton>
 
-			<UButton @click="edit" variant="link" color="warning" class="!p-1.5">
+			<UButton
+				@click="edit"
+				:to="`/video/edit/${id}`"
+				variant="link"
+				color="warning"
+				class="!p-1.5"
+			>
 				<Icon name="lucide:square-pen" />
 			</UButton>
 

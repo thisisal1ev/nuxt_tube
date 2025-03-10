@@ -21,12 +21,12 @@ function onFileChange(event: Event) {
 <template>
 	<UModal
 		v-if="dragStore.isModalOpen"
+		v-model:open="dragStore.isModalOpen"
 		:portal="true"
 		:close="{
 			variant: 'outline',
 			color: 'info',
 		}"
-		v-model:open="dragStore.isModalOpen"
 		close-icon="lucide:x"
 		title="Upload a video"
 		class="!min-w-3xl"

@@ -8,7 +8,7 @@
 					<Icon name="lucide:square-plus" class="icon" />
 				</button>
 
-				<NuxtLink class='group' to="/studio">
+				<NuxtLink class='group !text-white' to="/studio">
 					<Icon name="lucide:layout-grid" class="icon" />
 				</NuxtLink>
 

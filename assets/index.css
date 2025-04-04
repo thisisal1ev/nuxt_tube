@@ -44,4 +44,8 @@
 	.router-link-active {
 		@apply underline underline-offset-4;
 	}
+
+	.router-link-active > svg {
+		@apply text-red;
+	}
 }

@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+@theme {
+	--font-nunito: Nunito, serif;
+}
+
+@layer base {
+	body {
+		@apply bg-gray-900 text-white font-nunito text-base font-normal leading-normal;
+	}
+}

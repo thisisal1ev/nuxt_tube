@@ -1,36 +1,35 @@
 <script lang='ts' setup>
-defineProps<{ collapsed: boolean }>()
+const sidebarStore = useSidebarStore()
 </script>
 
 <template>
-	<nav class='flex flex-col space-y-2' :class="collapsed ? 'items-center' : ''">
-		<SidebarMenuItem :collapsed icon="compass" label="Explore" route="" />
-		<SidebarMenuItem :collapsed icon="flame" label="Trending" route="trend" />
-		<SidebarMenuItem :collapsed icon="gamepad-2" label="Video games" route="games" />
-		<SidebarMenuItem :collapsed icon="circle-play" label="Subscriptions" route="subscriptions" />
+	<nav class='flex flex-col space-y-2' :class="sidebarStore.isCollapsed ? 'items-center' : ''">
+		<SidebarMenuItem icon="compass" label="Explore" route="" />
+		<SidebarMenuItem icon="flame" label="Trending" route="trend" />
+		<SidebarMenuItem icon="gamepad-2" label="Video games" route="games" />
+		<SidebarMenuItem icon="circle-play" label="Subscriptions" route="subscriptions" />
 
 		<hr class="horizontal_line" />
 
-		<SidebarMenuItem :collapsed icon="tv-minimal-play" label="My channel" route="watch-later" />
-		<SidebarMenuItem :collapsed icon="list-video" label="Playlist" route="playlist" />
-		<SidebarMenuItem :collapsed icon="history" label="History" route="history" />
-		<SidebarMenuItem :collapsed icon="folder-heart" label="Liked videos" route="liked" />
+		<SidebarMenuItem icon="tv-minimal-play" label="My channel" route="watch-later" />
+		<SidebarMenuItem icon="list-video" label="Playlist" route="playlist" />
+		<SidebarMenuItem icon="history" label="History" route="history" />
+		<SidebarMenuItem icon="folder-heart" label="Liked videos" route="liked" />
 
 		<hr class="horizontal_line" />
 
-		<SidebarMenuItem :collapsed icon="layout-grid" label="Studio" route="studio" />
-		<SidebarMenuItem :collapsed icon="settings" label="Settings" route="settings" />
-		<SidebarMenuItem :collapsed icon="upload" label="Upload" route="" />
+		<SidebarMenuItem icon="layout-grid" label="Studio" route="studio" />
+		<SidebarMenuItem icon="settings" label="Settings" route="settings" />
+		<SidebarMenuItem icon="upload" label="Upload" route="" />
 
 		<hr class="horizontal_line" />
 
-		<p v-if='!collapsed' class="uppercase text-white/40 text-[8px]">
+		<p v-if='!sidebarStore.isCollapsed' class="uppercase text-white/40 text-[8px]">
 			More from NuxtTube
 		</p>
 
-		<SidebarMenuItem :collapsed icon="info" label="Send feedback" route="feedback" />
-		<SidebarMenuItem :collapsed icon="log-out" label="Logout" route="" />
-
+		<SidebarMenuItem icon="info" label="Send feedback" route="feedback" />
+		<SidebarMenuItem icon="log-out" label="Logout" route="" />
 	</nav>
 </template>
 

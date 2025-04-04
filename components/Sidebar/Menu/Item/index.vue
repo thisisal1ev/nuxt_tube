@@ -3,10 +3,10 @@ interface Props {
 	icon: string
 	label: string
 	route: string
-	collapsed: boolean
 }
 
 defineProps<Props>()
+const sidebarStore = useSidebarStore()
 </script>
 
 <template>
@@ -14,7 +14,7 @@ defineProps<Props>()
 		<Icon :name="`lucide:${icon}`" size='24'
 			class="transition duration-300 group-hover:!text-red group-hover:rotate-12" />
 
-		<span v-if='!collapsed'>
+		<span v-if='!sidebarStore.isCollapsed'>
 			{{ label }}
 		</span>
 	</NuxtLink>

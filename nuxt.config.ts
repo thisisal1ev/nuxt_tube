@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	css: ['~/assets/index.css'],
 	vite: { plugins: [tailwindcss()] },
-	modules: ['@nuxt/image', '@nuxt/fonts', '@nuxt/icon'],
+	modules: ['@nuxt/image', '@nuxt/fonts', '@nuxt/icon',  'motion-v/nuxt'],
 
 	fonts: {
 		families: [{ name: 'Nunito', provider: 'google', global: true }],

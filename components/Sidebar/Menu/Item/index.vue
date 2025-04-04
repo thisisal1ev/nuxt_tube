@@ -3,6 +3,7 @@ interface Props {
 	icon: string
 	label: string
 	route: string
+	collapsed: boolean
 }
 
 defineProps<Props>()
@@ -13,7 +14,7 @@ defineProps<Props>()
 		<Icon :name="`lucide:${icon}`" size='24'
 			class="transition duration-300 group-hover:!text-red group-hover:rotate-12" />
 
-		<span>
+		<span v-if='!collapsed'>
 			{{ label }}
 		</span>
 	</NuxtLink>

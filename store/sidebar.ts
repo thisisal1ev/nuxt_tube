@@ -3,11 +3,11 @@ export const useSidebarStore = defineStore('sidebar', () => {
 	const route = useRoute()
 
 	const isStudio = computed(() => {
-		return route.name === 'Studio' || route.name === 'Settings'
+		return route.name === 'studio' || route.name === 'settings'
 	})
 
 	const sidebarTitle = computed(() => {
-		return route.name === 'Studio' || route.name === 'Settings'
+		return route.name === 'studio' || route.name === 'settings'
 			? 'Studio'
 			: 'NuxtTube'
 	})

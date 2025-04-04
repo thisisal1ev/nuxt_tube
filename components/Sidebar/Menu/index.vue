@@ -16,11 +16,11 @@ const sidebarStore = useSidebarStore()
 		<SidebarMenuItem icon="history" label="History" route="history" />
 		<SidebarMenuItem icon="folder-heart" label="Liked videos" route="liked" />
 
-		<hr class="horizontal_line" />
+		<hr v-if='sidebarStore.isStudio' class="horizontal_line" />
 
-		<SidebarMenuItem icon="layout-grid" label="Studio" route="studio" />
-		<SidebarMenuItem icon="settings" label="Settings" route="settings" />
-		<SidebarMenuItem icon="upload" label="Upload" route="" />
+		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="layout-grid" label="Studio" route="studio" />
+		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="settings" label="Settings" route="settings" />
+		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="upload" label="Upload" route="" />
 
 		<hr class="horizontal_line" />
 

@@ -11,8 +11,8 @@ const sidebarAnimation = computed(() => ({
 
 <template>
 	<motion.aside class='sidebar' :initial="{ width: 256 }" :animate="sidebarAnimation" :exit="{ opacity: 0 }">
-		<div class='flex items-center justify-center space-x-4 mb-8 mx-auto'>
-			<button @click='sidebarStore.toggle' class='group'>
+		<div class='flex items-center space-x-4 mb-8'>
+			<button @click='sidebarStore.toggle' class='group' :class="{ 'mx-auto': sidebarStore.isCollapsed }">
 				<Icon class='group-hover:text-white/50 transition_color' name="lucide:menu" size="24" />
 			</button>
 
@@ -20,7 +20,7 @@ const sidebarAnimation = computed(() => ({
 				<Icon name="lucide:square-play" size="32" class="text-dimmed-red" />
 
 				<span class="font-extrabold text-2xl">
-					NuxtTube
+					{{ sidebarStore.sidebarTitle }}
 				</span>
 			</h1>
 		</div>

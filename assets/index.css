@@ -4,6 +4,7 @@
 	--font-nunito: Nunito, serif;
 
 	--color-red: #e93c28;
+	--color-dimmed-red: #e93c28cc;
 }
 
 @layer base {
@@ -38,5 +39,9 @@
 
 	.transition_color {
 		@apply transition-colors duration-300 ease-in-out;
+	}
+
+	.router-link-active {
+		@apply underline underline-offset-4;
 	}
 }

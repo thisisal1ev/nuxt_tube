@@ -2,6 +2,8 @@
 
 @theme {
 	--font-nunito: Nunito, serif;
+
+	--color-red: #e93c28;
 }
 
 @layer base {
@@ -28,5 +30,9 @@
 
 	.content {
 		grid-area: content;
+	}
+
+	.transition_color {
+		@apply transition-colors duration-300 ease-in-out;
 	}
 }

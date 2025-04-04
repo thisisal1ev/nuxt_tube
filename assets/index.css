@@ -8,4 +8,25 @@
 	body {
 		@apply bg-gray-900 text-white font-nunito text-base font-normal leading-normal;
 	}
+
+	.layout {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: auto 1fr;
+		grid-template-areas:
+			'sidebar header'
+			'sidebar content';
+	}
+
+	.header {
+		grid-area: header;
+	}
+
+	.sidebar {
+		grid-area: sidebar;
+	}
+
+	.content {
+		grid-area: content;
+	}
 }

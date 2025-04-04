@@ -4,15 +4,15 @@
 			<input type="search" placeholder="Search..." class="search_input transition_color" />
 
 			<div class="space-x-5 flex items-center justify-between">
-				<button>
+				<button class='group'>
 					<Icon name="lucide:square-plus" class="icon" />
 				</button>
 
-				<NuxtLink to="/studio">
+				<NuxtLink class='group' to="/studio">
 					<Icon name="lucide:layout-grid" class="icon" />
 				</NuxtLink>
 
-				<button>
+				<button class='group'>
 					<Icon name="lucide:bell" class="icon" />
 				</button>
 
@@ -43,5 +43,9 @@
 
 .auth_button {
 	@apply text-white rounded-sm px-4 py-1.5 flex items-center space-x-1.5
+}
+
+.icon {
+	@apply group-hover:text-white/50 transition-colors duration-300;
 }
 </style>

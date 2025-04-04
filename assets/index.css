@@ -11,6 +11,10 @@
 		@apply bg-gray-900 text-white font-nunito text-base font-normal leading-normal;
 	}
 
+	button {
+		@apply cursor-pointer;
+	}
+
 	.layout {
 		display: grid;
 		grid-template-columns: auto 1fr;

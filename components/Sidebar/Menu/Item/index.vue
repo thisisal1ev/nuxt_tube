@@ -12,7 +12,7 @@ const sidebarStore = useSidebarStore()
 <template>
 	<NuxtLink :to="`/${route}`" class='link group' :title="label">
 		<Icon :name="`lucide:${icon}`" :class="!sidebarStore.isCollapsed ? '!text-white' : ''" size='24'
-			class="transition duration-300 group-hover:text-red group-hover:rotate-12" />
+			class="transition duration-300 group-hover:!text-red group-hover:rotate-12" />
 
 		<span v-if='!sidebarStore.isCollapsed'>
 			{{ label }}

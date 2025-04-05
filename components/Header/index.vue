@@ -12,7 +12,7 @@
 					<Icon name="lucide:layout-grid" class="icon" />
 				</NuxtLink>
 
-				<button class='group'>
+				<button class='group mr-10'>
 					<Icon name="lucide:bell" class="icon" />
 				</button>
 

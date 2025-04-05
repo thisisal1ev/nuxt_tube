@@ -14,6 +14,10 @@ export default defineNuxtConfig({
 		'@pinia/nuxt',
 	],
 
+	routeRules: {
+		'/**': { isr: true, swr: true, cache: { maxAge: 60 } },
+	},
+
 	fonts: {
 		families: [{ name: 'Nunito', provider: 'google', global: true }],
 		experimental: {

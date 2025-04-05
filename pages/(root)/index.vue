@@ -1,10 +1,6 @@
 <template>
 	<section class='flex flex-col space-y-4 py-2.5'>
-		<h3 class='flex items-center space-x-2 text-lg font-semibold'>
-			<Icon name='lucide:flame' size='24' class='text-dimmed-red' />
-
-			<span>Trending</span>
-		</h3>
+		<SectionTitle icon='flame' text='Trending' />
 
 		<ul role='list' class='wrapper'>
 			<li class='w-full flex flex-col'>
@@ -154,11 +150,7 @@
 	</section>
 
 	<section class='flex flex-col space-y-4 py-2.5'>
-		<h3 class='flex items-center space-x-2 text-lg font-semibold'>
-			<Icon name='lucide:compass' size='24' class='text-dimmed-red' />
-
-			<span>Explore</span>
-		</h3>
+		<SectionTitle icon='compass' text='Explore' />
 
 		<ul role='list' class='wrapper'>
 			<li class='w-full flex flex-col'>

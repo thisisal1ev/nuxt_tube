@@ -43,7 +43,7 @@ defineProps<Props>()
 				</NuxtLink>
 			</h4>
 
-			<NuxtLink :to="`/channel/${channel}`" class="flex items-center text-sm">
+			<NuxtLink :to="`/channel/${channel}`" class="inline-flex items-center text-sm">
 				<span class="mr-1.5 text-white/70 text-sm">{{ channel }}</span>
 
 				<Icon v-if='isOfficial' name="lucide:badge-check" class="text-green-600" />

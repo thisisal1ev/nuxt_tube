@@ -15,7 +15,8 @@ export default defineNuxtConfig({
 	],
 
 	routeRules: {
-		'/**': { isr: true, swr: true, cache: { maxAge: 60 } },
+		'/**': { isr: true, swr: true, cache: { maxAge: 300 } },
+		'/auth': { ssr: true, swr: true, cache: { maxAge: 30 } },
 	},
 
 	fonts: {

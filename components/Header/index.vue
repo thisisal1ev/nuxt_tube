@@ -30,7 +30,7 @@
 @reference "tailwindcss";
 
 .header {
-	@apply border-b border-white/10 px-5 py-3;
+	@apply border-b border-white/10 px-5 py-5;
 }
 
 .header_container {

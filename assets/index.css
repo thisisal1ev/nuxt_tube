@@ -9,7 +9,7 @@
 
 @layer base {
 	body {
-		@apply bg-gray-900 text-white font-nunito text-base font-normal leading-normal;
+		@apply bg-gray-900 text-white font-nunito text-base font-normal leading-normal scroll-smooth;
 	}
 
 	button {
@@ -45,7 +45,7 @@
 		@apply underline underline-offset-4;
 	}
 
-	.router-link-active > svg {
+	.router-link-active svg {
 		@apply text-red;
 	}
 }

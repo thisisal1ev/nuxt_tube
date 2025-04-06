@@ -10,9 +10,10 @@ const sidebarAnimation = computed(() => ({
 </script>
 
 <template>
-	<motion.aside class='sidebar' :initial="{ width: 256 }" :animate="sidebarAnimation" :exit="{ opacity: 0 }">
-		<div class='flex items-center space-x-4 mb-8'>
-			<button @click='sidebarStore.toggle' class='group' :class="{ 'mx-auto': sidebarStore.isCollapsed }">
+	<motion.aside class='sidebar' :initial="{ width: 256 }" :animate="sidebarAnimation">
+		<div class='flex items-center space-x-4 mb-10'>
+			<button title='Toggle sidebar' @click='sidebarStore.toggle' class='group'
+				:class="{ 'mx-auto': sidebarStore.isCollapsed }">
 				<Icon class='group-hover:text-white/50 transition_color' name="lucide:menu" size="24" />
 			</button>
 

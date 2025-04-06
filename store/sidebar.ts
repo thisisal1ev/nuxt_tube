@@ -3,13 +3,11 @@ export const useSidebarStore = defineStore('sidebar', () => {
 	const route = useRoute()
 
 	const isStudio = computed(() => {
-		return route.name === 'studio' || route.name === 'settings'
+		return route.fullPath.includes('/studio')
 	})
 
 	const sidebarTitle = computed(() => {
-		return route.name === 'studio' || route.name === 'settings'
-			? 'Studio'
-			: 'NuxtTube'
+		return route.fullPath.includes('/studio') ? 'Studio' : 'NuxtTube'
 	})
 
 	function toggle() {

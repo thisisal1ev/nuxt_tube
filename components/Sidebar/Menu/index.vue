@@ -6,7 +6,7 @@ function logout() {
 }
 
 function toggleModal() {
-	console.log('Toggled modal')
+	console.log('Modal was toggled')
 }
 </script>
 
@@ -26,8 +26,12 @@ function toggleModal() {
 
 		<hr v-if='sidebarStore.isStudio' class="horizontal_line" />
 
-		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="layout-grid" label="Studio" route="/studio" />
-		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="settings" label="Settings" route="/settings" />
+		<p v-if='!sidebarStore.isCollapsed' class="uppercase text-white/40 text-[8px]">
+			Studio
+		</p>
+
+		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="layout-grid" label="Studio" route="/studio/content" />
+		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="settings" label="Settings" route="/studio/settings" />
 		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="upload" label="Upload" route="" @click='toggleModal' />
 
 		<hr class="horizontal_line" />

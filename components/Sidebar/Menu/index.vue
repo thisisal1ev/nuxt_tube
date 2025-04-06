@@ -26,7 +26,7 @@ function toggleModal() {
 
 		<hr v-if='sidebarStore.isStudio' class="horizontal_line" />
 
-		<p v-if='!sidebarStore.isCollapsed' class="uppercase text-white/40 text-[8px]">
+		<p v-if='!sidebarStore.isCollapsed && sidebarStore.isStudio' class="uppercase text-white/40 text-[8px]">
 			Studio
 		</p>
 

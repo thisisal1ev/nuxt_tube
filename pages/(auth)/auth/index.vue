@@ -28,28 +28,25 @@ const selectedTab = ref(tabs[0])
 					{{ item }}
 				</span>
 
-				<motion.div v-if="item === selectedTab" class="tabUnderline" layoutId="underline" id="underline" />
+				<motion.div v-if="item === selectedTab" class="tabUnderline bg-red" layoutId="underline" id="underline" />
 			</motion.button>
 		</div>
 
 
 		<AnimatePresence mode="wait">
-			<motion.div :key="selectedTab ? selectedTab : 'empty'" :initial="{ y: 10, opacity: 0 }"
+			<motion.div :key="selectedTab ? selectedTab : 'empty'" :initial="{ y: 10, opacity: 0 }" class='w-full'
 				:animate="{ y: 0, opacity: 1 }" :exit="{ y: -10, opacity: 0 }" :transition="{ duration: 0.2 }">
-				{{ selectedTab === 'Login' ? 'Login' : "Register" }}
+				<FormLogin v-if="selectedTab === 'Login'" />
+				<FormRegister v-else />
 			</motion.div>
 		</AnimatePresence>
 	</div>
 </template>
 
 <style scoped>
+@reference "tailwindcss";
+
 .tabUnderline {
-	position: absolute;
-	bottom: -2px;
-	left: 0;
-	right: 0;
-	height: 2px;
-	margin-inline: -5px;
-	background: var(--color-red);
+	@apply absolute -bottom-0.5 left-0 right-0 h-0.5 mx-[-5px];
 }
 </style>

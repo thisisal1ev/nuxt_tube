@@ -24,7 +24,7 @@ const trendItems = ref([
 	},
 	{
 		id: 3,
-		poster: 'https://i9.ytimg.com/vi/Eiu9hzJ-YrE/hq720_custom_2.jpg?sqp=CLy8yL8G-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCHpVQqKf2zhwdm6ucXlFnfmcbDBw',
+		poster: 'https://i.ytimg.com/vi/hp7RGbb44VY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBcDvBBVBBdIg1qKo10uQgAROPUFQ',
 		avatar: 'https://yt3.ggpht.com/aiw73zdQg8OFJXVUK0m4rFJnxSUn5GArkXrLWD3sDh8LJ0eAVpdn9ECmXSKyHyyoX98pbKYVWQ=s88-c-k-c0x00ffffff-no-rj',
 		createdAt: 'a month ago',
 		channel: 'RED Group',
@@ -71,7 +71,7 @@ const items = ref([
 	},
 	{
 		id: 3,
-		poster: 'https://i9.ytimg.com/vi/Eiu9hzJ-YrE/hq720_custom_2.jpg?sqp=CLy8yL8G-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCHpVQqKf2zhwdm6ucXlFnfmcbDBw',
+		poster: 'https://i.ytimg.com/vi/hp7RGbb44VY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBcDvBBVBBdIg1qKo10uQgAROPUFQ',
 		avatar: 'https://yt3.ggpht.com/aiw73zdQg8OFJXVUK0m4rFJnxSUn5GArkXrLWD3sDh8LJ0eAVpdn9ECmXSKyHyyoX98pbKYVWQ=s88-c-k-c0x00ffffff-no-rj',
 		createdAt: 'a month ago',
 		channel: 'RED Group',

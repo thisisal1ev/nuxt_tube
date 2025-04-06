@@ -1,6 +1,4 @@
 <script lang='ts' setup>
-import { motion } from 'motion-v'
-
 interface Props {
 	id: number
 	poster: string
@@ -17,7 +15,7 @@ defineProps<Props>()
 </script>
 
 <template>
-	<motion.li :hover="{ scale: 1.05 }" :transition="{ duration: 0.5, type: 'spring', bounce: 0.5 }"
+	<Motion as='li' :hover="{ scale: 1.05 }" :transition="{ duration: 0.5, type: 'spring', bounce: 0.5 }"
 		class='w-full flex flex-col'>
 		<div class='relative'>
 			<NuxtLink :to="`/video/${id}`">
@@ -55,5 +53,5 @@ defineProps<Props>()
 				<Icon v-if='isOfficial' name="lucide:badge-check" class="text-green-600" />
 			</NuxtLink>
 		</div>
-	</motion.li>
+	</Motion>
 </template>

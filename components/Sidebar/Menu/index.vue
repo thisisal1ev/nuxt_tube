@@ -19,7 +19,7 @@ function toggleModal() {
 
 		<hr class="horizontal_line" />
 
-		<SidebarMenuItem icon="tv-minimal-play" label="My channel" route="/channel" />
+		<SidebarMenuItem icon="tv-minimal-play" label="My channel" route="/channel/userAlias" />
 		<SidebarMenuItem icon="list-video" label="Playlist" route="/playlist" />
 		<SidebarMenuItem icon="history" label="History" route="/history" />
 		<SidebarMenuItem icon="folder-heart" label="Liked videos" route="/liked" />

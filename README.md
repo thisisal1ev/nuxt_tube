@@ -1,75 +1,24 @@
-# Nuxt Minimal Starter
+# 🍕 NuxtTube
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+---
 
-## Setup
+<img src="./public/demo.png" alt="NuxtTube Demo" width="800"/>
 
-Make sure to install dependencies:
+## 🛠 Stack
 
-```bash
-# npm
-npm install
+- Nuxt 3.16
+- Vue 3.5
+- Motion for Vue
+- Tailwind
+- VeeValidate x Zod
+- Pinia
+- and nuxt modules
 
-# pnpm
-pnpm install
+## 🤝 Contributing
 
-# yarn
-yarn install
+Please report bugs in the [Issues](https://github.com/thisisal1ev/nuxt_tube/issues) section or submit a Pull Request with your suggestions.
 
-# bun
-bun install
-```
+## Connection
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+<a href='mailto:aaalievvv1@gmail.com'>Email</a>
+<a href='https://t.me/thisisal1ev'>Telegram</a>

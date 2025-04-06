@@ -6,6 +6,10 @@ export const useSidebarStore = defineStore('sidebar', () => {
 		return route.fullPath.includes('/studio')
 	})
 
+	const isChannel = computed(() => {
+		return route.fullPath.includes('/channel/userAlias')
+	})
+
 	const sidebarTitle = computed(() => {
 		return route.fullPath.includes('/studio') ? 'Studio' : 'NuxtTube'
 	})
@@ -14,5 +18,5 @@ export const useSidebarStore = defineStore('sidebar', () => {
 		isCollapsed.value = !isCollapsed.value
 	}
 
-	return { isCollapsed, isStudio, sidebarTitle, toggle }
+	return { isCollapsed, isStudio, isChannel, sidebarTitle, toggle }
 })

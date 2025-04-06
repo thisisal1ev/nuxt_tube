@@ -26,7 +26,7 @@ const items = ref([
 	},
 	{
 		id: 3,
-		poster: 'https://i9.ytimg.com/vi/Eiu9hzJ-YrE/hq720_custom_2.jpg?sqp=CLy8yL8G-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCHpVQqKf2zhwdm6ucXlFnfmcbDBw',
+		poster: 'https://i.ytimg.com/vi/hp7RGbb44VY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBcDvBBVBBdIg1qKo10uQgAROPUFQ',
 		description: 'This is a description for the video',
 		createdAt: 'a month ago',
 		channel: 'RED Group',

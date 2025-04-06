@@ -1,6 +1,4 @@
 <script lang='ts' setup>
-import { motion } from 'motion-v'
-
 definePageMeta({
 	layout: 'auth',
 })
@@ -21,24 +19,24 @@ const selectedTab = ref(tabs[0])
 		</h1>
 
 		<div class="flex gap-x-5">
-			<motion.button v-for="item in tabs" :key="item" tag="li" class="relative" :initial="false"
+			<Motion as="button" v-for="item in tabs" :key="item" tag="li" class="relative" :initial="false"
 				@click="selectedTab = item">
 				<span :class='{ "!text-red transition-colors duration-300": selectedTab === item }'
 					class='text-lg font-semibold text-white/30'>
 					{{ item }}
 				</span>
 
-				<motion.div v-if="item === selectedTab" class="tabUnderline bg-red" layoutId="underline" id="underline" />
-			</motion.button>
+				<Motion as="div" v-if="item === selectedTab" class="tabUnderline bg-red" layoutId="underline" id="underline" />
+			</Motion>
 		</div>
 
 
 		<AnimatePresence mode="wait">
-			<motion.div :key="selectedTab ? selectedTab : 'empty'" :initial="{ y: 10, opacity: 0 }" class='w-full'
+			<Motion as="div" :key="selectedTab ? selectedTab : 'empty'" :initial="{ y: 10, opacity: 0 }" class='w-full'
 				:animate="{ y: 0, opacity: 1 }" :exit="{ y: -10, opacity: 0 }" :transition="{ duration: 0.2 }">
 				<FormLogin v-if="selectedTab === 'Login'" />
 				<FormRegister v-else />
-			</motion.div>
+			</Motion>
 		</AnimatePresence>
 	</div>
 </template>

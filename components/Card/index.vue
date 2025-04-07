@@ -42,7 +42,7 @@ defineProps<Props>()
 			</div>
 
 			<h4 class="font-semibold text-sm overflow-hidden line-clamp-2">
-				<NuxtLink :to='`/video/${id}`' class="transition-colors duration-300 hover:text-white/70">
+				<NuxtLink :to='`/video/${id}`' class="transition-colors duration-300 hover:text-white/70 no-underline">
 					{{ title }}
 				</NuxtLink>
 			</h4>

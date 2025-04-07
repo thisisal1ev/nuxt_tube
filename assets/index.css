@@ -37,6 +37,23 @@
 		grid-area: content;
 	}
 
+	.video_layout {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-rows: auto 1fr;
+		grid-template-areas:
+			'video recommendation'
+			'video recommendation';
+	}
+
+	.video {
+		grid-area: video;
+	}
+
+	.recommendation {
+		grid-area: recommendation;
+	}
+
 	.transition_color {
 		@apply transition-colors duration-300 ease-in-out;
 	}

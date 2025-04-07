@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 interface Props {
-	label: string
-	icon: string
+	label?: string
+	icon?: string
 }
 
 defineProps<Props>()

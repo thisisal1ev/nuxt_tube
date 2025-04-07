@@ -13,18 +13,20 @@ interface Item {
 
 interface Props {
 	items: Item[]
-	label: string
-	icon: string
+	label?: string
+	icon?: string
+	class?: string
+	classBody?: string
 }
 
 defineProps<Props>()
 </script>
 
 <template>
-	<section class='flex flex-col space-y-4 py-2.5'>
-		<SectionTitle :icon :label />
+	<section class='flex flex-col space-y-4 py-2.5' :class='classBody'>
+		<SectionTitle v-if='label' :icon :label />
 
-		<ul role='list' class='wrapper'>
+		<ul role='list' class='wrapper' :class>
 			<Card v-for='item in items' :key='item.id' v-bind='item' />
 		</ul>
 	</section>

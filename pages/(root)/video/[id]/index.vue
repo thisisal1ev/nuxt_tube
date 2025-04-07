@@ -143,6 +143,12 @@ function subscribe() {
 
 					<button class="font-semibold px-10 rounded-sm bg-neutral-600 py-2">Comment</button>
 				</div>
+
+				<div class="space-y-2.5 py-2.5">
+					<Comment channelAlias='myChannel'
+						avatar="https://yt3.googleusercontent.com/aiw73zdQg8OFJXVUK0m4rFJnxSUn5GArkXrLWD3sDh8LJ0eAVpdn9ECmXSKyHyyoX98pbKYVWQ=s160-c-k-c0x00ffffff-no-rj"
+						name="Name of the channel" comment="This is comment" createdAt="2 days ago" />
+				</div>
 			</div>
 		</div>
 

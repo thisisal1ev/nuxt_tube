@@ -9,7 +9,7 @@ const selectedTab = ref(tabs[0])
 </script>
 
 <template>
-	<div class='rounded-md border border-white/10 p-5 flex flex-col items-center justify-center space-y-5 w-80'>
+	<div class='rounded-md border border-white/10 p-5 flex flex-col items-center space-y-5 w-80'>
 		<h1 class="flex items-center space-x-1">
 			<Icon name="lucide:square-play" size="32" class="text-dimmed-red" />
 

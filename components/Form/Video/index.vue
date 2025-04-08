@@ -2,15 +2,16 @@
 const dragStore = useDragStore()
 const poster = ref<File | null>(null)
 const title = computed(() =>
-	dragStore.droppedFile ? dragStore.droppedFile.name : ''
+	dragStore.droppedFile?.name
 )
 
 const { handleSubmit, isSubmitting } = useForm({
-	validationSchema: '',
 	initialValues: {
 		title: title.value,
 		description: '',
 		tags: '',
+		video: dragStore.droppedFile,
+		poster: poster.value,
 	},
 })
 
@@ -33,16 +34,17 @@ const onSubmit = handleSubmit(async (data: any) => {
 	<form @submit='onSubmit' class="flex flex-col">
 		<div class="flex items-start justify-between space-x-5">
 			<div class="grow h-auto w-full space-y-4">
-				<FormInput name='title' placeholder="Enter title:" required />
+				<FormInput :value='title' name='title' label='Title' placeholder="Enter title:" required />
 
-				<FormTextarea name='description' placeholder='Enter description:' />
+				<FormTextarea name='description' label='Description' placeholder='Enter description:' />
 
 				<NuxtImg v-if="poster && !isVideo(poster.type)" width="200" height="80" class="h-28" :src="fileUrl(poster)"
 					:alt="poster?.name" />
 
-				<FormInput type='file' name='poster' accept="image/*" @change="onFileChange" placeholder='Upload poster:' />
+				<FormInput type='file' name='poster' label='Poster' accept="image/*" @change="onFileChange"
+					placeholder='Upload poster:' />
 
-				<FormInput name='tags' placeholder='Enter tags:' />
+				<FormInput name='tags' label='Tags' placeholder='Enter tags:' />
 			</div>
 
 			<div v-if="dragStore.droppedFile && isVideo(dragStore.droppedFile?.type)" class="bg-slate-800/60 rounded-lg">

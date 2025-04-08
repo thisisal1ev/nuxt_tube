@@ -2,6 +2,7 @@
 const isLiked = ref<boolean>(false)
 const state = ref<boolean>(false)
 const stateOfDescription = ref<boolean>(false)
+const inputValue = ref<string>('')
 const items = ref([
 	{
 		id: 1,
@@ -52,6 +53,31 @@ const items = ref([
 		createdAt: '',
 	},
 ])
+const comments = ref([
+	{
+		id: 1,
+		avatar:
+			'https://yt3.googleusercontent.com/8Ux80QiA5C5NgasL0mETDJUYVZObERuoQykwCiviSVFgr1q05AuvFwX5yoXUNtotLE8kLkQsqA=s160-c-k-c0x00ffffff-no-rj',
+		name: 'Name of the channel',
+		channelAlias: 'myChannel',
+		comment: 'This is comment',
+		createdAt: '2 days ago',
+	},
+])
+
+function onComment() {
+	comments.value.push({
+		id: Math.random(),
+		avatar:
+			'https://yt3.googleusercontent.com/8Ux80QiA5C5NgasL0mETDJUYVZObERuoQykwCiviSVFgr1q05AuvFwX5yoXUNtotLE8kLkQsqA=s160-c-k-c0x00ffffff-no-rj',
+		name: 'Name of the channel',
+		channelAlias: 'myChannel',
+		comment: inputValue.value,
+		createdAt: '2 days ago',
+	})
+
+	inputValue.value = ''
+}
 
 function description() {
 	stateOfDescription.value = !stateOfDescription.value
@@ -64,6 +90,10 @@ function like() {
 function subscribe() {
 	state.value = !state.value
 }
+
+watchEffect(() => {
+	console.log(inputValue.value)
+})
 </script>
 
 <template>
@@ -138,16 +168,18 @@ function subscribe() {
 
 				<hr class="text-gray-700" />
 
-				<div class="flex items-center justify-between space-x-16 py-2.5">
-					<Input class="grow py-2" placeholder="Enter comment" />
+				<form @submit.prevent='onComment' class="flex items-center justify-between space-x-16 py-2.5">
+					<input v-model='inputValue' type='text'
+						class="grow border border-white/10 px-2.5 py-1.5 outline-none rounded focus:border-white/30 transition-colors duration-300"
+						placeholder="Enter comment" />
 
-					<button class="font-semibold px-10 rounded-sm bg-neutral-600 py-2">Comment</button>
-				</div>
+					<button type='submit' class="font-semibold px-10 rounded-sm bg-neutral-600 py-2">Comment</button>
+				</form>
+
 
 				<div class="space-y-2.5 py-2.5">
-					<Comment channelAlias='myChannel'
-						avatar="https://yt3.googleusercontent.com/aiw73zdQg8OFJXVUK0m4rFJnxSUn5GArkXrLWD3sDh8LJ0eAVpdn9ECmXSKyHyyoX98pbKYVWQ=s160-c-k-c0x00ffffff-no-rj"
-						name="Name of the channel" comment="This is comment" createdAt="2 days ago" />
+					<Comment v-for='comment in comments' :key='comment.id' :channelAlias='comment.channelAlias'
+						:avatar='comment.avatar' :name='comment.name' :createdAt='comment.createdAt' :comment='comment.comment' />
 				</div>
 			</div>
 		</div>

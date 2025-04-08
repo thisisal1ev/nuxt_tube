@@ -15,7 +15,7 @@ const newComment = ref<string | number>(oldComment.value)
 </script>
 
 <template>
-	<div v-if="!(newComment === '')" class="flex items-start space-x-2.5">
+	<div v-if="!(newComment === '')" class="flex items-start space-x-2.5 not-last:border-b not-last:border-gray-700 py-2">
 		<NuxtImg :src="avatar" height="40" width="40" class="h-10 w-10 rounded-xl" />
 
 		<div class="space-y-1.5">

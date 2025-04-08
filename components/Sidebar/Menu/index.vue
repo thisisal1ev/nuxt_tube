@@ -1,12 +1,9 @@
 <script lang='ts' setup>
 const sidebarStore = useSidebarStore()
+const dragStore = useDragStore()
 
 function logout() {
 	console.log('logout')
-}
-
-function toggleModal() {
-	console.log('Modal was toggled')
 }
 </script>
 
@@ -32,7 +29,8 @@ function toggleModal() {
 
 		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="layout-grid" label="Studio" route="/studio/content" />
 		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="settings" label="Settings" route="/studio/settings" />
-		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="upload" label="Upload" route="" @click='toggleModal' />
+		<SidebarMenuItem v-if='sidebarStore.isStudio' icon="upload" label="Upload" route=""
+			@click='dragStore.toggleModal' />
 
 		<hr class="horizontal_line" />
 

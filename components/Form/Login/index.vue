@@ -1,8 +1,8 @@
 <script lang='ts' setup>
-import { loginFormSchema, type TFormLoginValues } from '../schemas'
+import { loginFormSchemaTyped, type TFormLoginValues } from '../schemas'
 
 const { handleSubmit, isSubmitting } = useForm({
-	validationSchema: loginFormSchema,
+	validationSchema: loginFormSchemaTyped,
 	initialValues: {
 		email: '',
 		password: '',

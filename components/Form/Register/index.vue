@@ -1,8 +1,8 @@
 <script lang='ts' setup>
-import { regisFormSchema, type TFormRegisterValues } from '../schemas'
+import { regisFormSchemaTyped, type TFormRegisterValues } from '../schemas'
 
 const { handleSubmit, isSubmitting } = useForm({
-	validationSchema: regisFormSchema,
+	validationSchema: regisFormSchemaTyped,
 	initialValues: {
 		email: '',
 		password: '',
@@ -24,6 +24,8 @@ const onSubmit = handleSubmit(async (data: TFormRegisterValues) => {
 		<FormInput type="password" name='confirmPassword' placeholder="Confirm password:" class="w-full" required />
 
 		<button :disabled='isSubmitting' type='submit'
-			class='bg-dimmed-red px-6 py-1.5 rounded-md hover:bg-dimmed-red/80 transition-colors duration-300'>Register</button>
+			class='bg-dimmed-red px-6 py-1.5 rounded-md hover:bg-dimmed-red/80 transition-colors duration-300'>
+			Register
+		</button>
 	</form>
 </template>

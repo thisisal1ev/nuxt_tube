@@ -31,7 +31,7 @@ const newComment = ref<string | number>(oldComment.value)
 				{{ newComment }}
 			</p>
 
-			<textarea v-else v-model="newComment" class='outline-none text-xs'></textarea>
+			<textarea v-else v-model="newComment" class='outline-none text-xs resize-none'></textarea>
 
 			<div class="flex items-center space-x-2.5" :class="state ? 'block' : 'hidden'">
 				<button @click="state = false" class="text-blue-600 text-xs">Save</button>

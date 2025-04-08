@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 export const passwordSchema = z
 	.string()
-	.min(6, { message: 'Введите корректный пароль' })
+	.min(8, { message: 'Пароль должен быть больше 8 символов' })
 
 export const formLoginSchema = z.object({
 	email: z.string().email({ message: 'Введите корректную почту' }),
@@ -20,8 +20,8 @@ export const formRegisterSchema = formLoginSchema
 		path: ['confirmPassword'],
 	})
 
-export const regisFormSchema = toTypedSchema(formRegisterSchema)
-export const loginFormSchema = toTypedSchema(formLoginSchema)
+export const regisFormSchemaTyped = toTypedSchema(formRegisterSchema)
+export const loginFormSchemaTyped = toTypedSchema(formLoginSchema)
 
 export type TFormLoginValues = z.infer<typeof formLoginSchema>
 export type TFormRegisterValues = z.infer<typeof formRegisterSchema>

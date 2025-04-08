@@ -1,10 +1,14 @@
+<script lang='ts' setup>
+const dragStore = useDragStore()
+</script>
+
 <template>
 	<header class='header'>
 		<div class='header_container'>
 			<input type="search" placeholder="Search..." class="search_input transition_color" />
 
 			<div class="space-x-5 flex items-center justify-between">
-				<button class='group'>
+				<button @click='dragStore.toggleModal' class='group'>
 					<Icon name="lucide:square-plus" class="icon" />
 				</button>
 
@@ -42,7 +46,7 @@
 }
 
 .auth_button {
-	@apply text-white rounded-sm px-4 py-1.5 flex items-center space-x-1.5
+	@apply text-white rounded-sm px-4 py-1.5 flex items-center space-x-1.5 !no-underline
 }
 
 .icon {

@@ -10,34 +10,17 @@ function onFileChange(event: Event) {
 </script>
 
 <template>
-	<AnimatePresence>
-		<Motion as="dialog" key='Modal' :initial="{ scale: 0 }" :exit="{ scale: 0 }"
-			:transition="{ duration: 0.35, type: 'spring', bounce: 0.1 }" :animate="{ scale: 1 }"
-			class="z-50 w-full max-w-4xl text-white rounded-lg shadow-lg p-6 space-y-5 fixed top-2/6 -translate-x-2/4 left-2/4 bg-gray-800"
-			open>
-			<div class='space-y-2.5'>
-				<div class='flex items-center justify-between'>
-					<h3 class='font-bold text-lg'>Upload a video</h3>
+	<slot>
+		<label @dragover.prevent @drop.prevent="dragStore.drop" class="drag_zone group" for="fileInput">
+			<input id="fileInput" type="file" @change="onFileChange" class="hidden" accept=".mp4,.mkv,.mov,.avi,.webm" />
 
-					<button @click='dragStore.toggleModal' class='inline-block p-1.5'>
-						<Icon name="lucide:x" size="20" class="text-gray-400 hover:text-gray-200 transition-colors" />
-					</button>
-				</div>
+			<Icon name="lucide:upload" size="44" class="transition group-hover:-translate-y-1.5" />
 
-				<hr class='text-gray-700'>
-
-				<label @dragover.prevent @drop.prevent="dragStore.drop" class="drag_zone group" for="fileInput">
-					<input id="fileInput" type="file" @change="onFileChange" class="hidden" accept=".mp4,.mkv,.mov,.avi,.webm" />
-
-					<Icon name="lucide:upload" size="44" class="transition group-hover:-translate-y-1.5" />
-
-					<p class="text-sm">
-						Drag and drop your video file here, or click to select
-					</p>
-				</label>
-			</div>
-		</Motion>
-	</AnimatePresence>
+			<p class="text-sm">
+				Drag and drop your video file here, or click to select
+			</p>
+		</label>
+	</slot>
 </template>
 
 <style scoped>

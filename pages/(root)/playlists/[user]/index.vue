@@ -1,8 +1,7 @@
 <script lang='ts' setup>
-function toggleModal() {
-	console.log('Modal toggled')
-}
+import { playlistFormSchemaTyped, type TFormPlaylistValues } from './schema'
 
+const isModalOpen = ref<boolean>(false)
 const items = ref([
 	{
 		title: 'PUBG',
@@ -20,6 +19,24 @@ const items = ref([
 			'https://i.ytimg.com/vi/nuJjc8GEp60/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCdlr_ib_pIeHNmRJ5LGm8MSajAwg',
 	},
 ])
+
+const { handleSubmit, isSubmitting } = useForm({
+	validationSchema: playlistFormSchemaTyped,
+	initialValues: {
+		title: '',
+		videoId: '',
+	}
+})
+
+const onSubmit = handleSubmit(async (data: TFormPlaylistValues) => {
+	console.log(data)
+
+	isModalOpen.value = false
+})
+
+function toggleModal() {
+	isModalOpen.value = !isModalOpen.value
+}
 </script>
 
 <template>
@@ -42,6 +59,41 @@ const items = ref([
 				:length='item.title.length' />
 		</div>
 	</section>
+
+	<Teleport to='body'>
+		<AnimatePresence>
+			<Overlay v-if='isModalOpen' @click="toggleModal" />
+		</AnimatePresence>
+
+		<AnimatePresence>
+			<Motion v-if='isModalOpen' as="dialog" key='Modal' :initial="{ scale: 0 }" :exit="{ scale: 0 }"
+				:transition="{ duration: 0.35, type: 'spring', bounce: 0.1 }" :animate="{ scale: 1 }"
+				class="z-50 w-full max-w-md text-white rounded-lg shadow-lg p-6 space-y-5 fixed top-2/10 -translate-x-2/4 left-2/4 bg-gray-800"
+				open>
+				<div class='space-y-2.5'>
+					<div class='flex items-center justify-between'>
+						<h3 class='font-bold text-lg'>Create a playlist</h3>
+
+						<button @click='toggleModal' class='inline-block p-1.5'>
+							<Icon name="lucide:x" size="20" class="text-gray-400 hover:text-gray-200 transition-colors" />
+						</button>
+					</div>
+
+					<form @submit='onSubmit' class="space-y-5 flex flex-col">
+						<FormInput name='title' label='Title' placeholder='Enter title:' required />
+
+						<FormInput name='videoId' label='Video public id (from url)' placeholder='Enter video public id:'
+							required />
+
+						<button :disabled='isSubmitting' type='submit'
+							class='bg-dimmed-red px-6 py-1.5 rounded-md mx-auto w-30 hover:bg-dimmed-red/80 transition-colors duration-300'>
+							Create
+						</button>
+					</form>
+				</div>
+			</Motion>
+		</AnimatePresence>
+	</Teleport>
 </template>
 
 <style scoped>

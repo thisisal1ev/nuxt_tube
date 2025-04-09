@@ -1,4 +1,6 @@
 <script lang='ts' setup>
+import { videoFormSchemaTyped, type TFormVideoValues } from '../schemas'
+
 const dragStore = useDragStore()
 const poster = ref<File | null>(null)
 const title = computed(() =>
@@ -6,12 +8,13 @@ const title = computed(() =>
 )
 
 const { handleSubmit, isSubmitting } = useForm({
+	validationSchema: videoFormSchemaTyped,
 	initialValues: {
 		title: title.value,
 		description: '',
 		tags: '',
-		video: dragStore.droppedFile,
-		poster: poster.value,
+		video: dragStore.droppedFile || '',
+		poster: poster.value || '',
 	},
 })
 
@@ -22,7 +25,7 @@ function onFileChange(event: Event) {
 	}
 }
 
-const onSubmit = handleSubmit(async (data: any) => {
+const onSubmit = handleSubmit(async (data: TFormVideoValues) => {
 	console.log(data)
 
 	dragStore.isModalOpen = false

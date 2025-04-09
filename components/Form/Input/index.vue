@@ -2,7 +2,6 @@
 import type { InputHTMLAttributes } from 'vue'
 
 interface Props extends /* @vue-ignore */ Partial<InputHTMLAttributes> {
-	class?: string
 	label?: string
 	name: string
 }

@@ -12,7 +12,7 @@ const dragStore = useDragStore()
 					<Icon name="lucide:square-plus" class="icon" />
 				</button>
 
-				<NuxtLink class='group' to="/studio">
+				<NuxtLink class='group' to="/studio/content">
 					<Icon name="lucide:layout-grid" class="icon" />
 				</NuxtLink>
 

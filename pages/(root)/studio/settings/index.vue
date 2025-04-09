@@ -44,7 +44,7 @@ const onSubmit = handleSubmit(async (data: TFormSettingsValues) => {
 				</div>
 
 				<div class='space-y-5'>
-					<FormInput type='file' name='avatar' label='Avatar' accept='image/*' @change="
+					<FormInput type='file' name='avatar' label='Avatar' accept='image/*' class='px-6' @change="
 						event => {
 							const input = event.target as HTMLInputElement
 							input.files ? (avatar = input.files[0]) : null
@@ -54,7 +54,7 @@ const onSubmit = handleSubmit(async (data: TFormSettingsValues) => {
 					<NuxtImg v-if="avatar && !isVideo(avatar.type)" :src="fileUrl(avatar)" width="128" height="128"
 						class="w-32 h-32" />
 
-					<FormInput type='file' name='banner' label='Banner' accept='image/*' @change="
+					<FormInput type='file' name='banner' label='Banner' accept='image/*' class='px-6' @change="
 						event => {
 							const input = event.target as HTMLInputElement
 							input.files ? (banner = input.files[0]) : null

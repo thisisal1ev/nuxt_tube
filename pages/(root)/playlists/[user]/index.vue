@@ -54,10 +54,10 @@ function toggleModal() {
 			</button>
 		</div>
 
-		<div class="py-2 my-0.5 wrapper">
+		<ul class="py-2 my-0.5 wrapper" role='list'>
 			<CardPlaylist v-for="item in items" :key="item.title" :title="item.title" :poster="item.poster"
 				:length='item.title.length' />
-		</div>
+		</ul>
 	</section>
 
 	<Teleport to='body'>

@@ -85,7 +85,11 @@ const items = ref([
 				<div class='flex items-center space-x-2 text-gray-400 text-sm'>
 					<span>/{{ $route.params.name }}</span>
 
+					<span>•</span>
+
 					<span>1 subscribers</span>
+
+					<span>•</span>
 
 					<span>1 videos</span>
 				</div>

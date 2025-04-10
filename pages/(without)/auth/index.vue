@@ -1,6 +1,6 @@
 <script lang='ts' setup>
 definePageMeta({
-	layout: 'auth',
+	layout: 'without',
 })
 
 const tabs = ['Login', 'Register']

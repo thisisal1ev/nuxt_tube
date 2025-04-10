@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
-	devtools: { enabled: false },
+	devtools: { enabled: true },
 	css: ['./assets/index.css'],
 	vite: { plugins: [tailwindcss()] },
 	modules: [
@@ -15,9 +15,17 @@ export default defineNuxtConfig({
 		'@vee-validate/nuxt',
 	],
 
-	routeRules: {
-		'/**': { isr: true, swr: true, cache: { maxAge: 300 } },
-		'/auth': { ssr: true, swr: true, cache: { maxAge: 30 } },
+	$production: {
+		routeRules: {
+			'/**': { isr: true, swr: true, cache: { maxAge: 300 } },
+			'/auth': { ssr: true, swr: true, cache: { maxAge: 30 } },
+		},
+	},
+
+	$development: {
+		routeRules: {
+			'/**': { ssr: false },
+		},
 	},
 
 	fonts: {

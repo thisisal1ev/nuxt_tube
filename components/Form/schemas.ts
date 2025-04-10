@@ -4,12 +4,14 @@ export const passwordSchema = z
 	.string()
 	.min(8, { message: 'Пароль должен быть больше 8 символов' })
 
+export const email = z.string().email({ message: 'Введите корректную почту' })
+
 export const title = z.string({
 	message: 'Название видео не должно быть пустым',
 })
 
 export const formLoginSchema = z.object({
-	email: z.string().email({ message: 'Введите корректную почту' }),
+	email,
 	password: passwordSchema,
 })
 
@@ -35,10 +37,17 @@ const formVideoSchema = z.object({
 	poster: z.union([z.string(), z.instanceof(File)]).optional(),
 })
 
+const formFeedbackSchema = z.object({
+	email,
+	message: z.string().min(10, { message: 'Слишком короткое сообщение' }),
+})
+
 export const regisFormSchemaTyped = toTypedSchema(formRegisterSchema)
 export const loginFormSchemaTyped = toTypedSchema(formLoginSchema)
 export const videoFormSchemaTyped = toTypedSchema(formVideoSchema)
+export const feedbackFormSchemaTyped = toTypedSchema(formFeedbackSchema)
 
 export type TFormLoginValues = z.infer<typeof formLoginSchema>
 export type TFormRegisterValues = z.infer<typeof formRegisterSchema>
 export type TFormVideoValues = z.infer<typeof formVideoSchema>
+export type TFormFeedbackValues = z.infer<typeof formFeedbackSchema>

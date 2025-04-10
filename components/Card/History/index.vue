@@ -15,7 +15,8 @@ const formatViews = formatter.format(+views)
 </script>
 
 <template>
-	<li class="flex items-start space-x-5">
+	<Motion as="li" :initial="{ y: 10 }" :hover='{ y: -5 }' :exit="{ y: -5 }"
+		:transition="{ duration: 0.3, type: 'spring', bounce: 0.1 }" class="flex items-start space-x-5">
 		<NuxtLink :to="`/video/${id}`">
 			<NuxtImg :src="poster" :alt="title" width="200" height="100" />
 		</NuxtLink>
@@ -27,7 +28,7 @@ const formatViews = formatter.format(+views)
 				</h3>
 			</NuxtLink>
 
-			<NuxtLink :to="`/channel/${channel}`" class="flex items-center space-x-1.5 mb-8 text-sm">
+			<NuxtLink :to="`/channel/${channel}`" class="flex items-center space-x-1.5 mb-8 text-sm text-gray-400">
 				<span>{{ channel }}</span>
 
 				<Icon v-if='isOfficial' name="lucide:badge-check" size="14" class="text-green-600" />
@@ -43,5 +44,5 @@ const formatViews = formatter.format(+views)
 				</div>
 			</div>
 		</div>
-	</li>
+	</Motion>
 </template>

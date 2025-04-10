@@ -161,7 +161,8 @@ watchEffect(() => {
 						use this component.
 					</p>
 
-					<button @click="description" class="uppercase !p-0 text-neutral-400 text-sm font-semibold">
+					<button @click="description"
+						class="uppercase !p-0 text-neutral-400 text-sm font-semibold hover:text-neutral-300 transition-colors duration-300">
 						{{ stateOfDescription ? 'Show less' : 'Show more' }}
 					</button>
 				</div>
@@ -173,7 +174,8 @@ watchEffect(() => {
 						class="grow border border-white/10 px-2.5 py-1.5 outline-none rounded focus:border-white/30 transition-colors duration-300"
 						placeholder="Enter comment" />
 
-					<button type='submit' class="font-semibold px-10 rounded-sm bg-neutral-600 py-2">Comment</button>
+					<button type='submit'
+						class="font-semibold px-10 rounded-sm bg-neutral-600 py-2 hover:bg-neutral-500 transition-colors duration-300">Comment</button>
 				</form>
 
 

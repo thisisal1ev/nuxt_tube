@@ -8,8 +8,7 @@ const sidebarAnimation = computed(() => ({
 </script>
 
 <template>
-	<Motion as="aside" layout class='sidebar' :initial="{ width: 256 }" :animate="sidebarAnimation"
-		:transition='{ duration: 0.3 }'>
+	<Motion as="aside" layout class='sidebar' :animate="sidebarAnimation" :transition='{ duration: 0.3 }'>
 		<div class='flex items-center space-x-4 mb-8.5'>
 			<button title='Toggle sidebar' @click='sidebarStore.toggle' class='group'
 				:class="{ 'mx-auto': sidebarStore.isCollapsed }">

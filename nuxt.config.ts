@@ -24,7 +24,7 @@ export default defineNuxtConfig({
 
 	$development: {
 		routeRules: {
-			'/**': { ssr: false },
+			'/**': { ssr: false, swr: false, cache: { maxAge: 0 } },
 		},
 	},
 

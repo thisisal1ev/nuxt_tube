@@ -2,13 +2,16 @@
 interface Props {
 	id: number
 	poster: string
-	avatar: string
 	title: string
 	views: string
-	channel: string
 	createdAt: string
-	isOfficial: boolean
-	isTrend: boolean
+	isTrend?: boolean
+	channel: {
+		name: string
+		alias: string
+		avatar: string
+		isOfficial: boolean
+	}
 }
 
 defineProps<Props>()
@@ -23,8 +26,8 @@ defineProps<Props>()
 
 			</NuxtLink>
 
-			<NuxtLink :to='`/channel/${channel}`' class='absolute bottom-4 left-2.5'>
-				<NuxtImg width='40' height='40' :src="avatar" :alt='channel' class='rounded-full' />
+			<NuxtLink :to='`/channel/${channel.alias}`' class='absolute bottom-4 left-2.5'>
+				<NuxtImg width='40' height='40' :src="channel.avatar" :alt='channel.name' class='rounded-full' />
 			</NuxtLink>
 		</div>
 
@@ -34,11 +37,11 @@ defineProps<Props>()
 					<Icon v-if='isTrend' name="lucide:flame" class="text-dimmed-red" size='16' />
 
 					<span class="text-white/50 text-xs tabular-nums">
-						{{ views }} views
+						{{ formatter.format(+views) }} views
 					</span>
 				</div>
 
-				<p class="text-white/50 text-xs">{{ createdAt }}</p>
+				<p class="text-white/50 text-xs">{{ timeAgo(createdAt) }}</p>
 			</div>
 
 			<h4 class="font-semibold text-sm overflow-hidden line-clamp-2">
@@ -47,10 +50,10 @@ defineProps<Props>()
 				</NuxtLink>
 			</h4>
 
-			<NuxtLink :to="`/channel/${channel}`" class="inline-flex items-center text-xs no-underline">
-				<span class="mr-1.5 text-white/70">{{ channel }}</span>
+			<NuxtLink :to="`/channel/${channel.alias}`" class="inline-flex items-center text-xs no-underline">
+				<span class="mr-1.5 text-white/70">{{ channel.name }}</span>
 
-				<Icon v-if='isOfficial' name="lucide:badge-check" class="text-green-600" />
+				<Icon v-if='channel.isOfficial' name="lucide:badge-check" class="text-green-600" />
 			</NuxtLink>
 		</div>
 	</Motion>

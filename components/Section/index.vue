@@ -2,17 +2,20 @@
 interface Item {
 	id: number
 	poster: string
-	avatar: string
 	title: string
 	views: string
-	channel: string
 	createdAt: string
-	isOfficial: boolean
-	isTrend: boolean
+	channel: {
+		name: string
+		alias: string
+		avatar: string
+		isOfficial: boolean
+	}
 }
 
 interface Props {
 	items: Item[]
+	isTrend?: boolean
 	label?: string
 	icon?: string
 	class?: string
@@ -27,7 +30,7 @@ defineProps<Props>()
 		<SectionTitle v-if='label' :icon :label />
 
 		<ul role='list' class='wrapper' :class>
-			<Card v-for='item in items' :key='item.id' v-bind='item' />
+			<Card v-for='item in items' :key='item.id' v-bind='item' :isTrend='isTrend' />
 		</ul>
 	</section>
 </template>

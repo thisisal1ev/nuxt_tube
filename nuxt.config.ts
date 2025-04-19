@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
-	css: ['./assets/index.css'],
+	css: ['./src/assets/index.css'],
 	vite: { plugins: [tailwindcss()] },
 	modules: [
 		'@nuxt/image',
@@ -30,17 +30,15 @@ export default defineNuxtConfig({
 
 	fonts: {
 		families: [{ name: 'Nunito', provider: 'google', global: true }],
+
 		experimental: {
 			processCSSVariables: true,
 		},
 	},
 
-	icon: {
-		mode: 'svg',
-		size: '16px',
-	},
+	srcDir: './src',
 
 	pinia: {
-		storesDirs: ['./store'],
+		storesDirs: ['./src/stores'],
 	},
 })

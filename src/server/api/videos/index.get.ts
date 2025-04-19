@@ -1,8 +1,8 @@
-import { axiosInstance } from '~/services/instance'
-
 export default defineCachedEventHandler(async event => {
+	const { $axios } = useNuxtApp()
+
 	try {
-		const { data } = await axiosInstance.get('/videos')
+		const data = await $axios.get('/videos')
 
 		return data
 	} catch (e) {

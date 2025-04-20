@@ -1,20 +1,20 @@
 <script lang='ts' setup>
 interface Item {
-	id: number
-	poster: string
-	title: string
-	views: string
-	createdAt: string
-	channel: {
-		name: string
-		alias: string
-		avatar: string
-		isOfficial: boolean
+	id?: number
+	poster?: string
+	title?: string
+	views?: number
+	createdAt?: string
+	channel?: {
+		name?: string
+		alias?: string
+		avatar?: string
+		isOfficial?: boolean
 	}
 }
 
 interface Props {
-	items: Item[]
+	items?: Item[]
 	isTrend?: boolean
 	label?: string
 	icon?: string
@@ -30,7 +30,7 @@ defineProps<Props>()
 		<SectionTitle v-if='label' :icon :label />
 
 		<ul role='list' class='wrapper' :class>
-			<Card v-for='item in items' :key='item.id' v-bind='item' :isTrend='isTrend' />
+			<Card v-for='item in items' :key='item?.id' v-bind='item' :isTrend />
 		</ul>
 	</section>
 </template>

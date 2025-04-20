@@ -1,15 +1,17 @@
 <script lang='ts' setup>
+import type { Channel } from '../model'
+
 const route = useRoute()
 const isSubscribed = ref(false)
+const { $api } = useNuxtApp()
 
 function subscribe() {
 	isSubscribed.value = !isSubscribed.value
 }
 
-const { data: channel } = useFetch(`/channels/${route.params.alias}`, {
-	baseURL: '/api',
-	method: 'GET',
-})
+const { data: channel } = await useAsyncData('channel', () =>
+	$api(`/channels/${route.params.alias}`)
+)
 </script>
 
 <template>
@@ -54,6 +56,6 @@ const { data: channel } = useFetch(`/channels/${route.params.alias}`, {
 			</div>
 		</div>
 
-		<Section icon='video' label='Videos' :items='channel?.videos' />
+		<Section v-if='channel?.videos' icon='video' label='Videos' :items='channel?.videos' />
 	</section>
 </template>

@@ -91,22 +91,30 @@ function subscribe() {
 	state.value = !state.value
 }
 
-watchEffect(() => {
-	console.log(inputValue.value)
-})
+const { $api } = useNuxtApp()
+const route = useRoute()
+
+const { data: video } = await useAsyncData('video', () =>
+	$api(`/videos/${route.params.id}`)
+)
 </script>
 
 <template>
 	<div class="video_layout gap-x-10 py-5">
 		<div class='video'>
-			<video src="https://cdn.pixabay.com/video/2025/01/19/253423_large.mp4"
+			<video src="https://cdn.pixabay.com/video/2025/01/19/253423_large.mp4" :poster='video?.poster'
 				class="rounded-lg w-full mb-10 aspect-video" controls />
 
 			<div class="w-full space-y-5">
 				<div class="flex items-start justify-between">
 					<div>
-						<h3 class="text-3xl font-semibold">Title {{ $route.params.id }}</h3>
-						<p class="text-sm text-white/50">2054 views</p>
+						<h3 class="text-xl font-semibold">
+							{{ video?.title }}
+						</h3>
+
+						<p class="text-sm text-white/50">
+							{{ formatter.format(+video?.views) }} views
+						</p>
 					</div>
 
 					<div class="flex items-center justify-between space-x-5">
@@ -119,7 +127,7 @@ watchEffect(() => {
 						<button @click='like' class='flex items-center space-x-1.5'>
 							<Icon :name="isLiked ? 'lucide:heart' : 'lucide:heart-off'" size='18' />
 
-							<span>{{ isLiked ? 10 + 1 : 10 }}</span>
+							<span>{{ formatter.format(video?.likes) }}</span>
 						</button>
 					</div>
 				</div>
@@ -128,17 +136,20 @@ watchEffect(() => {
 
 				<div class="flex items-center justify-between py-2.5">
 					<div class="flex justify-between space-x-2">
-						<NuxtImg class="rounded-xl w-14 h-14" width="40" height="40"
-							src="https://yt3.googleusercontent.com/aiw73zdQg8OFJXVUK0m4rFJnxSUn5GArkXrLWD3sDh8LJ0eAVpdn9ECmXSKyHyyoX98pbKYVWQ=s160-c-k-c0x00ffffff-no-rj" />
+						<NuxtImg class="rounded-xl w-14 h-14" width="40" height="40" :src="video?.channel.avatar" />
 
 						<div>
 							<h4 class="text-sm flex items-center space-x-1.5">
-								<NuxtLink :to="`/channel/mychannel`" class="mr-1.5">Name of the channel</NuxtLink>
+								<NuxtLink :to="`/channel/mychannel`" class="mr-1.5">
+									{{ video.channel.name }}
+								</NuxtLink>
 
-								<Icon name="lucide:badge-check" size="18" class="text-green-600" />
+								<Icon v-if='video.channel.isOfficial' name="lucide:badge-check" size="18" class="text-green-600" />
 							</h4>
 
-							<p class="text-xs text-white/60">100 subscribers</p>
+							<p class="text-xs text-white/60">
+								{{ video.channel.subscribers.length }} subscribers
+							</p>
 						</div>
 					</div>
 
@@ -151,14 +162,7 @@ watchEffect(() => {
 
 				<div class="bg-blue-200/10 my-5 w-full rounded-lg p-2.5">
 					<p class="text-sm line-clamp-2 mb-1.5" :class="stateOfDescription ? 'line-clamp-none' : ''">
-						This is description of video. This description can be very long.
-						However, it should be short. But it is no problem. If it is very long,
-						you should use this component. This is description of video. This
-						description can be very long. However, it should be short. But it is
-						no problem. If it is very long, you should use this component. This is
-						description of video. This description can be very long. However, it
-						should be short. But it is no problem. If it is very long, you should
-						use this component.
+						{{ video?.description }}
 					</p>
 
 					<button @click="description"

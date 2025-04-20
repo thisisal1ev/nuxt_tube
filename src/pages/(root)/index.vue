@@ -14,10 +14,9 @@ interface Props {
 	}
 }
 
-const { data: items } = useFetch<Props[]>('/videos', {
-	baseURL: '/api',
-	method: 'GET'
-})
+const { $api } = useNuxtApp()
+
+const { data: items } = await useAsyncData('videos', () => $api('/videos'))
 </script>
 
 <template>

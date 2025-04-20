@@ -1,16 +1,16 @@
 <script lang='ts' setup>
 interface Props {
-	id: number
-	poster: string
-	title: string
-	views: string
-	createdAt: string
+	id?: number
+	poster?: string
+	title?: string
+	views?: number
+	createdAt?: string
 	isTrend?: boolean
-	channel: {
-		name: string
-		alias: string
-		avatar: string
-		isOfficial: boolean
+	channel?: {
+		name?: string
+		alias?: string
+		avatar?: string
+		isOfficial?: boolean
 	}
 }
 
@@ -26,8 +26,8 @@ defineProps<Props>()
 
 			</NuxtLink>
 
-			<NuxtLink :to='`/channel/${channel.alias}`' class='absolute bottom-4 left-2.5'>
-				<NuxtImg width='40' height='40' :src="channel.avatar" :alt='channel.name' class='rounded-full' />
+			<NuxtLink :to='`/channel/${channel?.alias}`' class='absolute bottom-4 left-2.5'>
+				<NuxtImg width='40' height='40' :src="channel?.avatar" :alt='channel?.name' class='rounded-full' />
 			</NuxtLink>
 		</div>
 
@@ -50,10 +50,10 @@ defineProps<Props>()
 				</NuxtLink>
 			</h4>
 
-			<NuxtLink :to="`/channel/${channel.alias}`" class="inline-flex items-center text-xs no-underline">
-				<span class="mr-1.5 text-white/70">{{ channel.name }}</span>
+			<NuxtLink :to="`/channel/${channel?.alias}`" class="inline-flex items-center text-xs no-underline">
+				<span class="mr-1.5 text-white/70">{{ channel?.name }}</span>
 
-				<Icon v-if='channel.isOfficial' name="lucide:badge-check" class="text-green-600" />
+				<Icon v-if='channel?.isOfficial' name="lucide:badge-check" class="text-green-600" />
 			</NuxtLink>
 		</div>
 	</Motion>

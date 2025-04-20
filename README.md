@@ -2,7 +2,7 @@
 
 ---
 
-<img src="./public/demo.png" alt="NuxtTube Demo" width="800"/>
+<img src="./src/public/demo.png" alt="NuxtTube Demo" width="800"/>
 
 ## 🛠 Stack
 

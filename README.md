@@ -21,4 +21,4 @@ Please report bugs in the [Issues](https://github.com/thisisal1ev/nuxt_tube/issu
 ## Connection
 
 <a href='mailto:aaalievvv1@gmail.com'>Email</a>
-<a href='https://t.me/thisisal1ev'>Telegram</a>
+<a href='https://t.me/thisisaliyev'>Telegram</a>
